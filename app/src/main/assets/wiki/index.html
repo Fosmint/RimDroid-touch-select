@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki</title>
+    <style>
+        /* One size below the WebView default (16px): long pages read better a little smaller. */
+        body {
+            font-size: 15px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                color: #E2E2E9;
+            }
+
+            a {
+                color: #8AB4F8;
+            }
+        }
+
+        details > summary {
+            font-style: italic;
+        }
+
+        p + details,
+        div + details,
+        body > details {
+            margin-top: 1em;
+        }
+
+        .details-content {
+            padding-top: 0.5em;
+        }
+
+        code {
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        li {
+            margin-bottom: 0.3em;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><a href="#quick-start">Quick start</a></li>
+    <li>
+        <a href="#get-game">Getting the game</a>
+        <ol>
+            <li><a href="#steam-in-app">From Steam, in the app</a></li>
+            <li><a href="#gog">From GOG</a></li>
+            <li><a href="#zip-archive">From a .zip archive</a></li>
+        </ol>
+    </li>
+    <li><a href="#dlc">DLC</a></li>
+    <li><a href="#mods">Mods</a></li>
+    <li><a href="#renderers">Renderers and drivers</a></li>
+    <li><a href="#picture">Picture and frame rate</a></li>
+    <li><a href="#controls">Controls</a></li>
+    <li><a href="#saves">Saves and settings</a></li>
+    <li><a href="#compat-mode">Compatibility mode</a></li>
+    <li><a href="#engine">Engine</a></li>
+    <li><a href="#performance">Getting the best performance</a></li>
+    <li><a href="#known-issues">Known issues</a></li>
+    <li><a href="#report">Reporting a problem</a></li>
+</ul>
+
+<hr>
+
+<section id="quick-start">
+    <h2>Quick start</h2>
+    <p>
+        RimDroid is a launcher: it runs <b>your own copy</b> of RimWorld on Android.
+        The game itself is not included.
+    </p>
+    <ol>
+        <li>You need to own <b>RimWorld</b> on <b>Steam</b> or <b>GOG</b>. RimDroid runs the
+            <b>Linux</b> version of the game, <b>RimWorld 1.6</b>; 1.5 still runs as it is (legacy), but new features and fixes are for 1.6 only.</li>
+        <li>Get the game into the app. With Steam, open the side menu and tap
+            <b>Steam Downloads</b>: the game downloads straight into a ready instance. For GOG and
+            the other ways, see <a href="#get-game">Getting the game</a>.</li>
+        <li>An <b>instance</b> is one installed copy of the game. Each one has its own card on the
+            main screen and its own settings behind the <b>gear icon</b>. You can keep several, for
+            example 1.5 and 1.6 side by side.</li>
+        <li>When an instance is created, RimDroid detects your phone's GPU and picks a matching
+            graphics driver by itself.</li>
+        <li>Tap the <b>▶</b> button on the card. The first launch takes longer while the game
+            prepares its files. Do not press Back while it loads.</li>
+    </ol>
+    <p>
+        You need Android 11 or newer, a 64-bit phone and at least <b>6 GB of RAM</b> (8 GB or
+        more for comfortable play), plus 5–10 GB of free storage.
+    </p>
+    <p>The <b>?</b> at the top of each screen opens this page at the part about that screen.</p>
+    <p>The ⋮ menu of an instance card has <b>Add to home screen</b>: a shortcut that starts the game right away, without the launcher.</p>
+    <p>Something went wrong? See <a href="#report">Reporting a problem</a>.</p>
+</section>
+
+<hr>
+
+<section id="get-game">
+    <h2>Getting the game</h2>
+    <p>
+        RimDroid needs the <b>Linux version</b> of RimWorld, from a store where you own the game.
+        Pick one of the ways below.
+    </p>
+
+    <section id="steam-in-app">
+        <h3>1. From Steam, in the app</h3>
+        <ol>
+            <li>Open the side menu and tap <b>Steam Downloads</b>, tab <b>Game</b>.</li>
+            <li>Choose <b>RimWorld 1.5</b> or <b>RimWorld 1.6</b> and enter a name for the new
+                instance.</li>
+            <li>Sign in with your Steam account. Your login goes to Steam only and is not stored.
+                Approve the sign-in in the Steam Mobile app, or enter the Steam Guard code.</li>
+            <li>Tap <b>Download</b>. The game goes straight into a new instance: no PC and no
+                archives needed.</li>
+            <li>If the download stops, start it again with the <b>same instance name</b> and it
+                continues where it stopped.</li>
+        </ol>
+        <p>
+            To get an older build instead of the recommended one, enter its <b>Manifest ID</b> in
+            the advanced field (the IDs are listed on SteamDB). Otherwise leave it empty.
+        </p>
+    </section>
+
+    <section id="gog">
+        <h3>2. From GOG</h3>
+        <ol>
+            <li>Open the side menu and tap <b>Sign in to GOG</b>. Sign in with your GOG e-mail and
+                password on GOG's own page: RimDroid never sees your password.</li>
+            <li>Signing in through a linked account, such as Google, does not work inside an app.
+                If that is how you normally log in, set a GOG password first: gog.com → Sign in →
+                Password reset.</li>
+            <li>Tap <b>Check library</b>. RimWorld appears as a card, with its DLC below it.</li>
+            <li>Tap <b>Download</b> on the game and on every DLC you want. The files download one
+                after another into the public <b>Download/RimDroid</b> folder; allow <b>All files
+                access</b> when asked. You can switch to other apps meanwhile. If a download stops,
+                tap the button again to continue.</li>
+            <li>Once the game is downloaded, its button becomes <b>Create an instance</b>. The new
+                instance gets the game together with every DLC you have already downloaded.</li>
+        </ol>
+        <details>
+            <summary>On a PC</summary>
+            <div class="details-content">
+                <p>In your library on gog.com, download the <b>Linux</b> installers (.sh files) of
+                    RimWorld and of the DLC you own. Pack them all into one <b>.zip</b> archive,
+                    copy it to the phone and add it as described in
+                    <a href="#zip-archive">From a .zip archive</a>. The .zip is needed because file
+                    managers do not reliably hand a bare .sh file to apps.</p>
+            </div>
+        </details>
+    </section>
+
+    <section id="zip-archive">
+        <h3>3. From a .zip archive</h3>
+        <p>
+            Open the side menu and tap <b>Add game instance</b>, or the <b>+</b> at the top of the
+            main screen. Enter a name, tap <b>Pick ZIP file</b>, choose the archive and tap
+            <b>Install</b>.
+        </p>
+        <ul>
+            <li>The .zip can hold the RimWorld <b>Linux</b> build, the one with the
+                <code>RimWorldLinux</code> file (a folder around it is fine, RimDroid finds it), or
+                GOG's <b>.sh</b> installers of the game and its DLC.</li>
+            <li>Keep the name short: Latin letters and digits, up to 40 characters.</li>
+            <li>Keeping the .zip is not required, but it is handy later to reinstall or to create
+                another instance of the same version.</li>
+        </ul>
+    </section>
+</section>
+
+<hr>
+
+<section id="dlc">
+    <h2>DLC</h2>
+    <ul>
+        <li><b>From Steam:</b> in <b>Steam Downloads</b>, tab <b>DLC</b>, tick the DLC your account
+            owns and tap <b>Download selected DLC</b>. Each one is saved as a .zip in
+            <b>Download/RimDroid</b>.</li>
+        <li><b>From GOG:</b> download it from its card in <b>Sign in to GOG</b>, then tap
+            <b>Install</b> on the same card. A DLC downloaded before you create the instance is
+            included in it automatically.</li>
+        <li><b>To install a DLC file</b>, open the side menu, tap <b>Install mod / DLC</b>, choose
+            the file and the instance, open the <b>DLC</b> tab and tap <b>Install</b>. GOG
+            installers are recognised by themselves.</li>
+        <li>A DLC must match the game version of the instance: a DLC for 1.6 goes into a 1.6
+            instance. That is why the install screen always asks you to choose the instance.</li>
+    </ul>
+</section>
+
+<hr>
+
+<section id="mods">
+    <h2>Mods</h2>
+    <ul>
+        <li><b>Steam Downloads</b>, tab <b>Mods</b>, downloads Workshop mods by ID: the number at
+            the end of the Workshop link (<i>…/filedetails/?id=NUMBER</i>). No Steam login needed;
+            several IDs can be separated by spaces. Each mod is saved as a .zip in
+            <b>Download/RimDroid</b>. <b>Download via browser</b> on the same tab opens a
+            third-party site instead.</li>
+        <li>Install them in the side menu, <b>Install mod / DLC</b>, tab <b>MODS</b>. RimDroid finds
+            the mod's real folder (the one with <code>About/About.xml</code>) inside any
+            .zip.</li>
+        <li>A <b>Workshop collection</b> works the same way: paste its link or ID, and every mod in
+            it is downloaded.</li>
+        <li><b>Mods</b> in the side menu lists an instance's mods: <b>Active</b> in load order on top,
+            <b>Inactive</b> below, with a search field. The switch turns a mod on or off, the bin
+            deletes a downloaded mod, a tap shows its details. A mod marked <i>Not for 1.6</i> does not
+            list this game version; <i>Not installed</i> is in the list but its folder is gone. Close the
+            game first: while it runs the list cannot be changed.</li>
+        <li><b>Sort</b> puts the active mods in the order their authors ask for (what a mod needs
+            loads before it), Harmony first, then Core and the DLC. It shows how many mods move, and
+            which needed mods are missing (with their Workshop number) or switched off, before
+            anything changes. To move a mod by hand, drag it by <b>≡</b>; a long press offers
+            <b>Move to the top</b> / <b>Move to the bottom</b>.</li>
+        <li>Mods that need <b>Harmony</b> work: add the Harmony mod itself, as on a PC.</li>
+        <li>Mod lists of up to about 50 mods have been tested. Bigger lists are untested
+            territory.</li>
+        <li><b>Manage Storage</b> in the ⋮ menu of an instance card opens that instance's folder in
+            your phone's file manager, if you want to add or remove files by hand.</li>
+        <li>If Chinese, Japanese or Korean text does not show, install the
+            <a href="https://www.mediafire.com/file/s4axik3wwdvrtze/RimDroidCJKmod.zip/file" target="_blank">RimDroidCJKmod</a>
+            font mod: add the .zip with <b>Install mod / DLC</b>, tab <b>MODS</b>, then turn it on in
+            the game's Mods menu. It needs no other mods.</li>
+    </ul>
+</section>
+
+<hr>
+
+<section id="renderers">
+    <h2>Renderers and drivers</h2>
+    <p>
+        A renderer translates the game's desktop graphics for Android. Pick it in the instance
+        settings (gear icon), card <b>Video</b>.
+    </p>
+
+    <h3>Zink ZFA (Vulkan)</h3>
+    <p>
+        The default and the recommended one. It draws through your phone's Vulkan driver, chosen
+        right below it.
+    </p>
+
+    <h3>MobileGlues (no Vulkan)</h3>
+    <p>
+        Draws through the phone's OpenGL ES driver instead and needs no Vulkan at all.
+        Experimental. Try it if Zink gives a black screen or a broken picture; it can help on
+        phones without a Snapdragon (Adreno) GPU.
+    </p>
+    <p>
+        On this renderer the game's textures are converted to the phone's format on every launch,
+        which takes 10–20 seconds of loading. <b>Texture cache (MobileGlues)</b> in the side menu,
+        <b>Settings</b>, keeps the converted textures on disk (<b>Keep converted textures</b>, on by
+        default), so from the second launch on the game reaches the menu faster. The cache is shared
+        by all instances and takes a few hundred MB with all DLC; <b>Clear</b> removes it, and the
+        next launch fills it again.
+    </p>
+
+    <h3>Vulkan drivers (for Zink)</h3>
+    <p>
+        When you create an instance, RimDroid picks a driver for your GPU, and
+        <b>Recommended driver (detect GPU)</b> does the same again. If the picture looks wrong or
+        stays black, try another one.
+    </p>
+    <ul>
+        <li><b>System (phone driver)</b>: the phone's own driver. Works on any GPU and is the right
+            choice on phones without a Snapdragon (Adreno) GPU.</li>
+        <li><b>Turnip</b> and <b>Freedreno</b>: open-source drivers for Snapdragon (Adreno) GPUs,
+            each built for the GPU generation named in the list (6xx, 7xx, 8xx, 830/840).</li>
+        <li><b>Turnip Adreno 7XX_new (v26.2)</b>: the first one to try on Adreno 7xx when the
+            screen stays black.</li>
+        <li><b>Turnip Adreno 6xx (legacy)</b>: for older Adreno 6xx GPUs, such as the one in the
+            Snapdragon 685.</li>
+        <li><b>Custom driver (imported)</b>: your own driver. Import it in the side menu,
+            <b>Custom Vulkan driver</b> (a .so file or an AdrenoTools .zip). It is then shared by all
+            instances.</li>
+    </ul>
+</section>
+
+<hr>
+
+<section id="picture">
+    <h2>Picture and frame rate</h2>
+    <p>All of these are in the instance settings (gear icon).</p>
+    <ul>
+        <li><b>Render resolution</b>: a lower resolution gives more FPS on weak GPUs and a bigger
+            interface; fullscreen at the phone's own resolution is the sharpest.
+            <b>Black margins 1280×720</b> is the fastest.</li>
+        <li><b>Texture compression</b> shrinks textures to save memory and gain FPS, and is needed
+            to load several DLC on weaker phones. It mainly affects plants and resources; pawns and
+            animals are never touched. <b>Low</b> is a good balance, <b>Ultra low</b> is a bit
+            faster but plants look blurry.</li>
+        <li><b>In-game display</b>: <b>FPS</b> puts the frame rate in the top-left corner; <b>Full info</b>
+            shows a bar at the top with GPU and CPU load, memory, power draw, temperature and an FPS
+            graph — handy to see what slows the game down. Takes effect on the next launch.</li>
+        <li><b>Frame rate limit</b> (30, 60 or no limit) smooths out swings and leaves more of the
+            processor to the game, which can raise the game speed on weaker phones. Try 60 or 30 if
+            the counter jumps around.</li>
+    </ul>
+</section>
+
+<hr>
+
+<section id="controls">
+    <h2>Controls</h2>
+
+    <h3>Touch</h3>
+    <ul>
+        <li><b>Tap</b> for a left click.</li>
+        <li><b>Hold a finger still</b> for a moment for a right click, which gives orders such as
+            "move here". A short vibration confirms it.</li>
+        <li><b>Pinch</b> with two fingers to zoom.</li>
+        <li>Move the camera with the left stick. To drag the map with one finger instead, turn on
+            <b>Drag the map with a finger to pan</b> in the instance settings.</li>
+    </ul>
+
+    <h3>On-screen controls</h3>
+    <ul>
+        <li>The default layout has a stick for the mouse cursor, a stick for the camera, left and
+            right click, menu (Esc), pause (Space), game speeds 1–3, the Architect (Tab), the Work,
+            Schedule and Assign tabs (F1–F3), rotate (E), Shift for queuing orders and the game's
+            hotkeys B, H and L. Its buttons show icons; the eye hides and shows the controls, the
+            keyboard opens the phone's keyboard.</li>
+        <li>Change them in the side menu, <b>Edit on-screen controls</b> (it asks which instance when
+            there are several): tap an element to select it and drag it to move it. <b>Add</b> creates
+            buttons bound to any key or mouse action; <b>Reset</b> returns to the default layout. The
+            grid button switches between <b>Grid: off</b> (place buttons freely), <b>Grid: small</b> (a
+            fine grid for exact placement) and <b>Grid: large</b> (a coarse grid that lines buttons up
+            evenly).</li>
+        <li><b>Button icons</b> in the side menu shows pictures instead of button labels: pick the
+            instance and press <b>Apply</b> next to a pack, and every button gets the icon of its action.
+            RimDroid comes with its own pack; <b>Import a pack (zip)</b> adds yours, and
+            <b>Remove</b> next to a pack takes its icons off and brings the labels back. Apply stays grey
+            while it would change nothing. In the editor,
+            <b>Icons</b> does the same for the open layout, and a button's own panel has
+            <b>Choose icon</b> and <b>Remove icon</b>. A pack is a .zip of PNG pictures, white on a
+            transparent background, named after the actions: click, right_click, middle_click, zoom_in,
+            zoom_out, menu, pause, accept, speed_1 to speed_4, architect, work, schedule, assign,
+            animals, wildlife, research, quests, world, history, rotate_left, rotate_right, queue,
+            forbid, prev_colonist, next_colonist, camera_up, camera_down, camera_left, camera_right,
+            keyboard, toggle_controls. An optional pack.json names it:
+            <code>{"format": 1, "name": "My icons"}</code>; add <code>"tint": false</code> for colour
+            pictures.</li>
+        <li><b>Import / export controls</b> in the side menu saves an instance's layout as a .json file
+            or loads one. Icons are not inside the file: on another phone apply an icon pack there.</li>
+    </ul>
+
+    <h3>Typing</h3>
+    <p>
+        To type in the game, for example to rename a colonist, tap the text field, then the keyboard button:
+        the phone's keyboard opens and what you type goes into the game. Tap it again to
+        close it. This works on RimWorld 1.6 only, and types Latin letters only.
+    </p>
+
+    <h3>Gamepad, mouse and keyboard</h3>
+    <ul>
+        <li>A physical <b>gamepad</b> works: the right stick moves the cursor, the left stick moves
+            the camera, the triggers click and the bumpers zoom. If buttons are swapped, fix them in
+            the instance settings, <b>Gamepad mapping</b>: tap <b>Start</b> and press the button you
+            want for each action.</li>
+        <li>A physical <b>mouse and keyboard</b> work too.</li>
+        <li>The game always runs in landscape. <b>Mirror the picture (180°)</b> flips it for a
+            gamepad or cradle that holds the phone the other way up. It applies from the next
+            launch.</li>
+    </ul>
+</section>
+
+<hr>
+
+<section id="saves">
+    <h2>Saves and settings</h2>
+    <ul>
+        <li><b>Import / export saves</b> in the side menu moves an instance's saves
+            out and in as a .zip: for a backup, or to carry them to another instance or
+            phone.</li>
+        <li><b>Import / export settings</b> does the same for the game's settings:
+            options, key bindings, the mod list and mod settings.</li>
+        <li><b>Steam Cloud saves</b>: if you also play RimWorld on a PC through Steam, this brings
+            your cloud saves onto the phone and sends the phone's saves back. The sign-in is
+            approved in the Steam Mobile app, so Steam Guard must be on there. When the same save
+            exists on both sides, you choose which one to keep. Close the game before
+            sending.</li>
+    </ul>
+</section>
+
+<hr>
+
+<section id="compat-mode">
+    <h2>Compatibility mode</h2>
+    <p>
+        In the instance settings, card <b>Advanced</b> (tap its title to open it). Turn it on if the
+        game will not start: a black screen, or stuck on loading. The game runs a bit slower with
+        it, so leave it off when you do not need it. It is a workaround and may not help on every
+        phone.
+    </p>
+    <p>
+        The same card has <b>Debug mode</b>, which writes a more detailed log, and
+        <b>Environment variables</b>. Leave both alone unless we ask you to change them.
+    </p>
+</section>
+
+<section id="engine">
+    <h2>Engine</h2>
+    <p>
+        In the instance settings (gear icon), the first card. RimWorld 1.6 only: a 1.5 instance always
+        runs the first way.
+    </p>
+    <ul>
+        <li><b>Full emulation (box64)</b>: everything runs through x86 emulation. The most compatible,
+            the slowest.</li>
+        <li><b>box64 + native Mono</b>: the engine is emulated, the game's and the mods' code runs
+            natively. Faster; the previous default.</li>
+        <li><b>Native engine (experimental)</b>: the game's own engine built for Android, nothing
+            emulated. The fastest and the lightest on memory. Vulkan only. A new instance starts on it;
+            an instance that played before keeps its engine until you switch it here, and the launcher
+            tells you once that the new engine exists.</li>
+    </ul>
+    <p>What is different on the native engine:</p>
+    <ul>
+        <li>The renderer and Vulkan driver settings do not apply: it always draws directly with
+            Vulkan. <b>Vulkan compatibility</b> below the engine choice: Auto turns it on for the GPUs
+            known to need it (Mali-G615); turn it on if the picture freezes on the logo or in the menu
+            while the game keeps running.</li>
+        <li><b>Texture compression</b> (No / Low / Ultra low) works here too, but shrinks only the big
+            textures; icons and pawns stay sharp. Low is the default for a new instance: on an 8 GB phone
+            with many mods the game may not load without it.</li>
+        <li>The resolution presets work as on box64: <b>Black margins 1280×720</b> draws the game in a
+            16:9 box with black margins.</li>
+        <li>The mouse wheel zooms the map and scrolls lists, as on a PC (lists need the Harmony mod).
+            The pinch and the Zoom in / Zoom out buttons do the same.</li>
+        <li>A message that Steam could not be initialised may appear at the start: tap Ignore.</li>
+        <li>If something is wrong, switch back to box64 + native Mono here; the saves are the same for
+            all three engines.</li>
+    </ul>
+    <p><b>Report a bug</b> attaches the native engine's own log.</p>
+</section>
+
+<hr>
+
+<section id="performance">
+    <h2>Getting the best performance</h2>
+    <p>
+        RimWorld is very demanding on the processor, and emulation adds to that. A fresh
+        three-colonist start is light; a large, old colony with many pawns and mods is far heavier,
+        and even a strong phone feels it.
+    </p>
+    <ul>
+        <li>Turn on your phone's <b>game booster</b> and set it to its highest-performance profile:
+            Samsung Game Booster, Xiaomi/POCO Game Turbo, Realme/OPPO/OnePlus Game Space, vivo/iQOO
+            Ultra Game Mode, Infinix/Tecno Game Mode.</li>
+        <li>Install a <b>performance mod</b> such as RocketMan. The processor is the limit, and
+            these mods cut the cost of the simulation directly.</li>
+        <li>Set a <b>Frame rate limit</b> of 60 or 30, and on weaker phones try
+            <b>Texture compression: Low</b> and a lower <b>Render resolution</b>.</li>
+        <li>Keep the colony and the mod list modest on weaker phones, and close background
+            apps.</li>
+        <li>On weaker phones the game speed buttons may not change the frame rate at all. That is
+            expected: the simulation, not the graphics, is the limit.</li>
+    </ul>
+</section>
+
+<hr>
+
+<section id="known-issues">
+    <h2>Known issues</h2>
+
+    <h3>Black screen after starting the game again</h3>
+    <p>
+        If you leave the game while it is still running and then tap <b>▶</b> again, the screen
+        can stay black. Return to the running game from the recent-apps screen instead. If it is
+        already black, close RimDroid completely (swipe it away in recent apps) and launch
+        again.
+    </p>
+
+    <h3>Picture cut off at both sides (OPPO and other ColorOS phones)</h3>
+    <p>
+        The per-app display setting <b>Hide camera</b> shrinks the game and cuts off both sides.
+        <b>Fix:</b> turn <b>Hide camera</b> off for RimDroid, keep <b>Full screen</b> on, close the
+        app completely and launch again. The names of these settings vary between phones; search
+        the phone's settings for "full screen".
+    </p>
+
+    <h3>Artifacts on older Mali GPUs</h3>
+    <p>
+        On phones with an older Mali GPU the picture may show artifacts that change from launch to
+        launch. Try the <b>MobileGlues</b> renderer.
+    </p>
+</section>
+
+<hr>
+
+<section id="report">
+    <h2>Reporting a problem</h2>
+    <p>
+        Open the side menu and tap <b>Report a bug</b>, then choose the instance where the problem
+        happened. RimDroid attaches its logs and your phone's details to a message to us: pick your
+        email app, describe the problem and tap <b>Send</b>. Report right after the problem
+        happens, while the log still holds it. <b>Export logs (ZIP)</b> saves the same logs as a
+        file, for example to attach to a GitHub issue.
+    </p>
+    <p>
+        The icons at the top of the side menu lead to new versions on GitHub and to RimDroid on X
+        and Reddit.
+    </p>
+</section>
+</body>
+</html>

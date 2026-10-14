@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki</title>
+    <style>
+        /* One size below the WebView default (16px): long pages read better a little smaller. */
+        body {
+            font-size: 15px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                color: #E2E2E9;
+            }
+
+            a {
+                color: #8AB4F8;
+            }
+        }
+
+        details > summary {
+            font-style: italic;
+        }
+
+        p + details,
+        div + details,
+        body > details {
+            margin-top: 1em;
+        }
+
+        .details-content {
+            padding-top: 0.5em;
+        }
+
+        code {
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        li {
+            margin-bottom: 0.3em;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><a href="#quick-start">Inicio rápido</a></li>
+    <li>
+        <a href="#get-game">Cómo conseguir el juego</a>
+        <ol>
+            <li><a href="#steam-in-app">Desde Steam, dentro de la app</a></li>
+            <li><a href="#gog">Desde GOG</a></li>
+            <li><a href="#zip-archive">Desde un archivo .zip</a></li>
+        </ol>
+    </li>
+    <li><a href="#dlc">DLC</a></li>
+    <li><a href="#mods">Mods</a></li>
+    <li><a href="#renderers">Renderizadores y controladores</a></li>
+    <li><a href="#picture">Imagen y fluidez</a></li>
+    <li><a href="#controls">Controles</a></li>
+    <li><a href="#saves">Partidas y ajustes</a></li>
+    <li><a href="#compat-mode">Modo de compatibilidad</a></li>
+    <li><a href="#engine">Motor</a></li>
+    <li><a href="#performance">Cómo sacar el máximo rendimiento</a></li>
+    <li><a href="#known-issues">Problemas conocidos</a></li>
+    <li><a href="#report">Cómo reportar un problema</a></li>
+</ul>
+
+<hr>
+
+<section id="quick-start">
+    <h2>Inicio rápido</h2>
+    <p>
+        RimDroid es un launcher: ejecuta <b>tu propia copia</b> de RimWorld en Android.
+        El juego no está incluido.
+    </p>
+    <ol>
+        <li>Necesitas tener <b>RimWorld</b> en <b>Steam</b> o <b>GOG</b>. RimDroid ejecuta la
+            versión de <b>Linux</b> del juego, <b>RimWorld 1.6</b>; la 1.5 sigue funcionando tal cual (antigua), pero las novedades y correcciones son solo para la 1.6.</li>
+        <li>Pon el juego en la app. Con Steam, abre el menú lateral y toca
+            <b>Descargas de Steam</b>: el juego se descarga directamente en una instancia lista.
+            Para GOG y las demás opciones, mira <a href="#get-game">Cómo conseguir el juego</a>.</li>
+        <li>Una <b>instancia</b> es una copia instalada del juego. Cada una tiene su propia tarjeta
+            en la pantalla principal y sus propios ajustes en el <b>icono de engranaje</b>. Puedes
+            tener varias, por ejemplo 1.5 y 1.6 lado a lado.</li>
+        <li>Al crear una instancia, RimDroid detecta la GPU de tu teléfono y elige por sí solo un
+            controlador gráfico adecuado.</li>
+        <li>Toca el botón <b>▶</b> de la tarjeta. El primer inicio tarda más mientras el juego
+            prepara sus archivos. No pulses Atrás mientras carga.</li>
+    </ol>
+    <p>
+        Necesitas Android 11 o posterior, un teléfono de 64 bits y al menos <b>6 GB de RAM</b>
+        (8 GB o más para jugar cómodo), además de 5–10 GB de espacio libre.
+    </p>
+    <p>El <b>?</b> en la parte superior de cada pantalla abre esta página en la parte que habla
+        de esa pantalla.</p>
+    <p>El menú ⋮ de la tarjeta de una instancia tiene <b>Añadir a la pantalla de inicio</b>: un acceso directo que inicia el juego directamente, sin pasar por el lanzador.</p>
+    <p>¿Algo salió mal? Mira <a href="#report">Cómo reportar un problema</a>.</p>
+</section>
+
+<hr>
+
+<section id="get-game">
+    <h2>Cómo conseguir el juego</h2>
+    <p>
+        RimDroid necesita la <b>versión de Linux</b> de RimWorld, de una tienda donde tengas el
+        juego. Elige una de las opciones de abajo.
+    </p>
+
+    <section id="steam-in-app">
+        <h3>1. Desde Steam, dentro de la app</h3>
+        <ol>
+            <li>Abre el menú lateral y toca <b>Descargas de Steam</b>, pestaña <b>Juego</b>.</li>
+            <li>Elige <b>RimWorld 1.5</b> o <b>RimWorld 1.6</b> y escribe un nombre para la nueva
+                instancia.</li>
+            <li>Inicia sesión con tu cuenta de Steam. Tus datos van solo a Steam y no se guardan.
+                Aprueba el inicio de sesión en la app Steam Mobile o escribe el código de
+                Steam Guard.</li>
+            <li>Toca <b>Descargar</b>. El juego va directamente a una instancia nueva: no hace falta
+                PC ni archivos comprimidos.</li>
+            <li>Si la descarga se detiene, iníciala otra vez con el <b>mismo nombre de
+                instancia</b> y continuará donde se detuvo.</li>
+        </ol>
+        <p>
+            Para bajar una versión anterior en lugar de la recomendada, escribe su <b>ID de
+            manifiesto</b> en el campo avanzado (los ID aparecen en SteamDB). Si no, déjalo
+            vacío.
+        </p>
+    </section>
+
+    <section id="gog">
+        <h3>2. Desde GOG</h3>
+        <ol>
+            <li>Abre el menú lateral y toca <b>Iniciar sesión en GOG</b>. Inicia sesión con tu
+                correo y contraseña de GOG en la propia página de GOG: RimDroid nunca ve tu
+                contraseña.</li>
+            <li>El inicio de sesión con una cuenta vinculada, como Google, no funciona dentro de una
+                app. Si sueles entrar así, primero crea una contraseña de GOG: gog.com → Sign in →
+                Password reset.</li>
+            <li>Toca <b>Comprobar biblioteca</b>. RimWorld aparece como una tarjeta, con sus DLC
+                debajo.</li>
+            <li>Toca <b>Descargar</b> en el juego y en cada DLC que quieras. Los archivos se
+                descargan uno tras otro en la carpeta pública <b>Download/RimDroid</b>; permite el
+                <b>acceso a todos los archivos</b> cuando se te pida. Mientras tanto puedes cambiar
+                a otras apps. Si una descarga se detiene, toca el botón otra vez para
+                continuar.</li>
+            <li>Cuando el juego termina de descargarse, su botón cambia a <b>Crear una
+                instancia</b>. La nueva instancia recibe el juego junto con todos los DLC que ya
+                descargaste.</li>
+        </ol>
+        <details>
+            <summary>En una PC</summary>
+            <div class="details-content">
+                <p>En tu biblioteca de gog.com, descarga los instaladores de <b>Linux</b> (archivos
+                    .sh) de RimWorld y de los DLC que tengas. Ponlos todos en un solo archivo
+                    <b>.zip</b>, cópialo al teléfono y agrégalo como se explica en
+                    <a href="#zip-archive">Desde un archivo .zip</a>. El .zip hace falta porque los
+                    administradores de archivos no siempre le pasan bien un archivo .sh suelto a las
+                    apps.</p>
+            </div>
+        </details>
+    </section>
+
+    <section id="zip-archive">
+        <h3>3. Desde un archivo .zip</h3>
+        <p>
+            Abre el menú lateral y toca <b>Añadir instancia del juego</b>, o el <b>+</b> en la parte
+            superior de la pantalla principal. Escribe un nombre, toca <b>Elegir archivo ZIP</b>,
+            elige el archivo y toca <b>Instalar</b>.
+        </p>
+        <ul>
+            <li>El .zip puede contener la versión de <b>Linux</b> de RimWorld, la que tiene el
+                archivo <code>RimWorldLinux</code> (puede estar dentro de una carpeta, RimDroid lo
+                encuentra), o los instaladores <b>.sh</b> de GOG del juego y sus DLC.</li>
+            <li>Usa un nombre corto: letras latinas y números, hasta 40 caracteres.</li>
+            <li>No hace falta conservar el .zip, pero sirve más adelante para reinstalar o para
+                crear otra instancia de la misma versión.</li>
+        </ul>
+    </section>
+</section>
+
+<hr>
+
+<section id="dlc">
+    <h2>DLC</h2>
+    <ul>
+        <li><b>Desde Steam:</b> en <b>Descargas de Steam</b>, pestaña <b>DLC</b>, marca los DLC que
+            tiene tu cuenta y toca <b>Descargar los DLC seleccionados</b>. Cada uno se guarda como
+            un .zip en <b>Download/RimDroid</b>.</li>
+        <li><b>Desde GOG:</b> descárgalo desde su tarjeta en <b>Iniciar sesión en GOG</b> y luego
+            toca <b>Instalar</b> en la misma tarjeta. Un DLC descargado antes de crear la instancia
+            se incluye en ella automáticamente.</li>
+        <li><b>Para instalar un archivo de DLC</b>, abre el menú lateral, toca <b>Instalar mod /
+            DLC</b>, elige el archivo y la instancia, abre la pestaña <b>DLC</b> y toca
+            <b>Instalar</b>. Los instaladores de GOG se reconocen solos.</li>
+        <li>Un DLC debe coincidir con la versión del juego de la instancia: un DLC para 1.6 va en
+            una instancia 1.6. Por eso la pantalla de instalación siempre te pide elegir la
+            instancia.</li>
+    </ul>
+</section>
+
+<hr>
+
+<section id="mods">
+    <h2>Mods</h2>
+    <ul>
+        <li><b>Descargas de Steam</b>, pestaña <b>Mods</b>, descarga mods del Workshop por ID: el
+            número al final del enlace del Workshop (<i>…/filedetails/?id=NÚMERO</i>). No hace falta
+            iniciar sesión en Steam; puedes separar varios ID con espacios. Cada mod se guarda como
+            un .zip en <b>Download/RimDroid</b>. <b>Descargar con el navegador</b>, en la misma
+            pestaña, abre en cambio un sitio de terceros.</li>
+        <li>Instálalos desde el menú lateral, <b>Instalar mod / DLC</b>, pestaña <b>MODS</b>. RimDroid
+            encuentra la carpeta real del mod (la que tiene <code>About/About.xml</code>) dentro de
+            cualquier .zip.</li>
+        <li>Una <b>colección del Workshop</b> funciona igual: pega su enlace o ID y se descargan
+            todos sus mods.</li>
+        <li><b>Mods</b>, en el menú lateral, muestra los mods de una instancia: arriba los
+            <b>Activos</b> en orden de carga, debajo los <b>Inactivos</b>, con un buscador. El
+            interruptor activa o desactiva un mod, la papelera borra un mod descargado y un toque
+            muestra sus detalles. <i>No es para 1.6</i> marca un mod que no indica esta versión del
+            juego; <i>No instalado</i>, uno que está en la lista pero cuya carpeta falta. Cierra antes
+            el juego: mientras está abierto la lista no se puede cambiar.</li>
+        <li><b>Ordenar</b> coloca los mods activos como piden sus autores (lo que un mod necesita
+            se carga antes): primero Harmony, luego Core y los DLC. Antes de cambiar nada muestra
+            cuántos mods se mueven y qué mods necesarios faltan (con su número del Workshop) o están
+            desactivados. Para mover un mod a mano, arrástralo por <b>≡</b>; mantenerlo pulsado ofrece
+            <b>Mover al principio</b> / <b>Mover al final</b>.</li>
+        <li>Los mods que necesitan <b>Harmony</b> funcionan: agrega también el mod Harmony, como en
+            PC.</li>
+        <li>Se probaron listas de hasta unos 50 mods. Las listas más grandes son terreno sin
+            probar.</li>
+        <li><b>Administrar almacenamiento</b>, en el menú ⋮ de una tarjeta de instancia, abre la
+            carpeta de esa instancia en el administrador de archivos del teléfono, por si quieres
+            agregar o quitar archivos a mano.</li>
+        <li>Si el texto en chino, japonés o coreano no se ve, instala el mod de fuentes
+            <a href="https://www.mediafire.com/file/s4axik3wwdvrtze/RimDroidCJKmod.zip/file" target="_blank">RimDroidCJKmod</a>:
+            agrega el .zip con <b>Instalar mod / DLC</b>, pestaña <b>MODS</b>, y actívalo en el menú de
+            mods del juego. No necesita otros mods.</li>
+    </ul>
+</section>
+
+<hr>
+
+<section id="renderers">
+    <h2>Renderizadores y controladores</h2>
+    <p>
+        Un renderizador traduce los gráficos de escritorio del juego para Android. Elígelo en los
+        ajustes de la instancia (icono de engranaje), tarjeta <b>Vídeo</b>.
+    </p>
+
+    <h3>Zink ZFA (Vulkan)</h3>
+    <p>
+        Es el predeterminado y el recomendado. Dibuja mediante el controlador Vulkan de tu
+        teléfono, que se elige justo debajo.
+    </p>
+
+    <h3>MobileGlues (sin Vulkan)</h3>
+    <p>
+        Dibuja mediante el controlador OpenGL ES del teléfono y no necesita Vulkan en absoluto.
+        Experimental. Pruébalo si Zink da una pantalla negra o una imagen rota; puede ayudar en
+        teléfonos sin una GPU Snapdragon (Adreno).
+    </p>
+    <p>
+        Con este renderizador, las texturas del juego se convierten al formato del teléfono en cada
+        inicio, lo que cuesta 10–20 segundos de carga. <b>Caché de texturas (MobileGlues)</b> en el
+        menú lateral, <b>Ajustes</b>, guarda las texturas ya convertidas en el disco (<b>Guardar las
+        texturas convertidas</b>, activado por defecto), así que a partir del segundo inicio el juego
+        llega antes al menú. La caché es común a todas las instancias y ocupa unos cientos de MB con
+        todos los DLC; <b>Borrar</b> la elimina y el siguiente inicio la vuelve a llenar.
+    </p>
+
+    <h3>Controladores Vulkan (para Zink)</h3>
+    <p>
+        Al crear una instancia, RimDroid elige un controlador para tu GPU, y
+        <b>Controlador recomendado (detectar GPU)</b> vuelve a hacerlo. Si la imagen se ve mal o
+        sigue negra, prueba otro.
+    </p>
+    <ul>
+        <li><b>System (phone driver)</b>: el controlador propio del teléfono. Funciona con
+            cualquier GPU y es la opción correcta en teléfonos sin una GPU Snapdragon
+            (Adreno).</li>
+        <li><b>Turnip</b> y <b>Freedreno</b>: controladores de código abierto para GPU Snapdragon
+            (Adreno), cada uno hecho para la generación de GPU indicada en la lista (6xx, 7xx, 8xx,
+            830/840).</li>
+        <li><b>Turnip Adreno 7XX_new (v26.2)</b>: el primero que conviene probar en Adreno 7xx
+            cuando la pantalla sigue negra.</li>
+        <li><b>Turnip Adreno 6xx (legacy)</b>: para GPU Adreno 6xx antiguas, como la del
+            Snapdragon 685.</li>
+        <li><b>Custom driver (imported)</b>: tu propio controlador. Impórtalo en el menú lateral,
+            <b>Controlador Vulkan personalizado</b> (un archivo .so o un .zip de AdrenoTools).
+            Luego lo comparten todas las instancias.</li>
+    </ul>
+</section>
+
+<hr>
+
+<section id="picture">
+    <h2>Imagen y fluidez</h2>
+    <p>Todo esto está en los ajustes de la instancia (icono de engranaje).</p>
+    <ul>
+        <li><b>Resolución de renderizado</b>: una resolución menor da más FPS en GPU débiles y una
+            interfaz más grande; la pantalla completa a la resolución propia del teléfono es la más
+            nítida. <b>Bordes negros 1280×720</b> es la más rápida.</li>
+        <li><b>Compresión de texturas</b> reduce las texturas para ahorrar memoria y ganar FPS, y
+            hace falta para cargar varios DLC en teléfonos más débiles. Afecta sobre todo a las
+            plantas y los recursos; los colonos y los animales nunca se tocan. <b>Baja</b> es un
+            buen equilibrio; <b>Muy baja</b> es algo más rápida, pero las plantas se ven
+            borrosas.</li>
+        <li><b>En pantalla durante el juego</b>: <b>FPS</b> muestra la tasa de fotogramas en la esquina
+            superior izquierda; <b>Info completa</b> muestra una barra arriba con la carga de GPU y CPU,
+            memoria, consumo, temperatura y un gráfico de FPS: ayuda a ver qué frena el juego. Se aplica
+            en el siguiente inicio.</li>
+        <li><b>Límite de FPS</b> (30, 60 o sin límite) suaviza los saltos y deja más procesador
+            para el juego, lo que puede subir la velocidad del juego en teléfonos más débiles.
+            Prueba 60 o 30 si el contador salta mucho.</li>
+    </ul>
+</section>
+
+<hr>
+
+<section id="controls">
+    <h2>Controles</h2>
+
+    <h3>Toques</h3>
+    <ul>
+        <li><b>Toca</b> para hacer clic izquierdo.</li>
+        <li><b>Deja un dedo quieto</b> un momento para hacer clic derecho, que da órdenes como
+            «ir aquí». Una vibración corta lo confirma.</li>
+        <li><b>Pellizca</b> con dos dedos para hacer zoom.</li>
+        <li>Mueve la cámara con el stick izquierdo. Para arrastrar el mapa con un dedo, activa
+            <b>Mover el mapa arrastrando con el dedo</b> en los ajustes de la instancia.</li>
+    </ul>
+
+    <h3>Controles en pantalla</h3>
+    <ul>
+        <li>El diseño predeterminado tiene un stick para el cursor del mouse, un stick para la
+            cámara, clic izquierdo y derecho, menú (Esc), pausa (Space), las velocidades 1–3, el
+            arquitecto (Tab), las pestañas Trabajo, Horario y Asignar (F1–F3), rotar (E), Shift para
+            encolar órdenes y los atajos del juego B, H y L. Sus botones muestran iconos; el ojo oculta
+            y muestra los controles, el teclado abre el teclado del teléfono.</li>
+        <li>Cámbialos en el menú lateral, <b>Editar controles en pantalla</b> (si hay varias instancias,
+            pregunta cuál): toca un elemento para seleccionarlo y arrástralo para moverlo. <b>Añadir</b>
+            crea botones asignados a cualquier tecla o acción del mouse; <b>Restablecer</b> vuelve al
+            diseño predeterminado. El botón de cuadrícula alterna entre <b>Cuadrícula: no</b> (colocar
+            los botones libremente), <b>Cuadrícula: fina</b> (una cuadrícula densa para un ajuste exacto)
+            y <b>Cuadrícula: gruesa</b> (una cuadrícula amplia para alinearlos).</li>
+        <li><b>Iconos de botones</b>, en el menú lateral, muestra imágenes en lugar de las etiquetas de
+            los botones: elige la instancia y pulsa <b>Aplicar</b> junto a un paquete, y cada botón
+            recibe el icono de su acción. RimDroid trae su propio paquete; <b>Importar un paquete
+            (zip)</b> añade el tuyo, y <b>Quitar</b> junto a un paquete quita sus
+            iconos y devuelve las etiquetas. Aplicar queda en gris mientras no cambiaría nada. En el editor, <b>Iconos</b> hace lo mismo con el diseño abierto, y
+            el panel de cada botón tiene <b>Elegir icono</b> y <b>Quitar icono</b>. Un paquete es un .zip
+            de imágenes PNG, blancas sobre fondo transparente, con el nombre de la acción: click,
+            right_click, middle_click, zoom_in, zoom_out, menu, pause, accept, speed_1 a speed_4,
+            architect, work, schedule, assign, animals, wildlife, research, quests, world, history,
+            rotate_left, rotate_right, queue, forbid, prev_colonist, next_colonist, camera_up,
+            camera_down, camera_left, camera_right, keyboard, toggle_controls. Un pack.json opcional da
+            el nombre: <code>{"format": 1, "name": "Mis iconos"}</code>; añade <code>"tint": false</code>
+            para imágenes en color.</li>
+        <li><b>Importar / exportar controles</b>, en el menú lateral, guarda el diseño de una instancia
+            como archivo .json o lo carga. Los iconos no van en el archivo: en otro teléfono aplica allí
+            un paquete de iconos.</li>
+    </ul>
+
+    <h3>Escribir</h3>
+    <p>
+        Para escribir en el juego, por ejemplo para renombrar a un colono, toca el campo de texto y
+        luego el botón del teclado: se abre el teclado del teléfono y lo que escribas llega al juego. Toca
+        de nuevo para cerrarlo. Funciona solo en RimWorld 1.6 y solo con letras
+        latinas.
+    </p>
+
+    <h3>Control, mouse y teclado</h3>
+    <ul>
+        <li>Un <b>control</b> físico funciona: el stick derecho mueve el cursor, el izquierdo la
+            cámara, los gatillos hacen clic y los botones superiores hacen zoom. Si los botones
+            están cambiados, corrígelos en los ajustes de la instancia, <b>Asignación del
+            control</b>: toca <b>Empezar</b> y presiona el botón que quieras para cada
+            acción.</li>
+        <li>Un <b>mouse y un teclado</b> físicos también funcionan.</li>
+        <li>El juego siempre va en horizontal. <b>Girar la imagen (180°)</b> lo voltea para un
+            control o soporte que sostiene el teléfono al revés. Se aplica desde el siguiente
+            inicio.</li>
+    </ul>
+</section>
+
+<hr>
+
+<section id="saves">
+    <h2>Partidas y ajustes</h2>
+    <ul>
+        <li><b>Importar / exportar partidas</b>, en el menú lateral, saca y mete
+            las partidas de una instancia como un .zip: como copia de seguridad o para llevarlas a
+            otra instancia u otro teléfono.</li>
+        <li><b>Importar / exportar ajustes</b> hace lo mismo con los ajustes del
+            juego: opciones, asignación de teclas, la lista de mods y los ajustes de los
+            mods.</li>
+        <li><b>Partidas en Steam Cloud</b>: si también juegas RimWorld en la PC con Steam, esto
+            trae tus partidas de la nube al teléfono y envía de vuelta las del teléfono. El inicio
+            de sesión se aprueba en la app Steam Mobile, así que Steam Guard tiene que estar
+            activado allí. Si la misma partida existe en ambos lados, tú eliges cuál conservar.
+            Cierra el juego antes de enviar.</li>
+    </ul>
+</section>
+
+<hr>
+
+<section id="compat-mode">
+    <h2>Modo de compatibilidad</h2>
+    <p>
+        En los ajustes de la instancia, tarjeta <b>Avanzado</b> (toca su título para abrirla).
+        Actívalo si el juego no inicia: pantalla negra o se queda en la carga. Con él el juego va
+        un poco más lento, así que déjalo apagado si no lo necesitas. Es una solución provisional y
+        puede no ayudar en todos los teléfonos.
+    </p>
+    <p>
+        La misma tarjeta tiene <b>Modo de depuración</b>, que escribe un registro más detallado, y
+        <b>Variables de entorno</b>. No los toques a menos que te lo pidamos.
+    </p>
+</section>
+
+<section id="engine">
+    <h2>Motor</h2>
+    <p>
+        En los ajustes de la instancia (engranaje), la primera tarjeta. Solo RimWorld 1.6: una instancia
+        1.5 siempre funciona de la primera manera.
+    </p>
+    <ul>
+        <li><b>Emulación completa (box64)</b>: todo se ejecuta mediante emulación x86. El más compatible,
+            el más lento.</li>
+        <li><b>box64 + Mono nativo</b>: el motor se emula, el código del juego y de los mods se ejecuta de
+            forma nativa. Más rápido; el valor por defecto anterior.</li>
+        <li><b>Motor nativo (experimental)</b>: el motor del juego compilado para Android, sin emulación.
+            El más rápido y el que menos memoria usa. Solo Vulkan. Una instancia nueva empieza con él; una
+            instancia ya jugada conserva su motor hasta que lo cambies aquí, y el lanzador te avisa una vez
+            de que existe el nuevo motor.</li>
+    </ul>
+    <p>Qué cambia con el motor nativo:</p>
+    <ul>
+        <li>Los ajustes de renderizador y de controlador Vulkan no se aplican: siempre dibuja directamente
+            con Vulkan. <b>Compatibilidad Vulkan</b> debajo de la elección del motor: Auto la activa en las
+            GPU que la necesitan (Mali-G615); actívala si la imagen se congela en el logotipo o en el menú
+            mientras el juego sigue funcionando.</li>
+        <li><b>Compresión de texturas</b> (No / Baja / Muy baja) también funciona aquí, pero solo reduce
+            las texturas grandes; los iconos y los colonos siguen nítidos. Baja es el valor por defecto de
+            una instancia nueva: en un teléfono de 8 GB con muchos mods el juego puede no cargar sin
+            ella.</li>
+        <li>Los preajustes de resolución funcionan como en box64: <b>Márgenes negros 1280×720</b> dibuja
+            el juego en un recuadro 16:9 con márgenes negros.</li>
+        <li>La rueda del ratón acerca el mapa y desplaza las listas, como en un PC (las listas necesitan
+            el mod Harmony). El pellizco y los botones Zoom in / Zoom out hacen lo mismo.</li>
+        <li>Al inicio puede aparecer un mensaje de que Steam no se pudo iniciar: pulsa Ignore.</li>
+        <li>Si algo va mal, vuelve aquí a box64 + Mono nativo; las partidas son las mismas para los tres
+            motores.</li>
+    </ul>
+    <p><b>Informar de un error</b> adjunta el registro propio del motor nativo.</p>
+</section>
+
+<hr>
+
+<section id="performance">
+    <h2>Cómo sacar el máximo rendimiento</h2>
+    <p>
+        RimWorld exige mucho del procesador, y la emulación suma a eso. Un inicio nuevo con tres
+        colonos es ligero; una colonia grande y antigua con muchos colonos y mods es mucho más
+        pesada, y hasta un teléfono potente lo nota.
+    </p>
+    <ul>
+        <li>Activa el <b>modo de juego</b> de tu teléfono y elige su perfil de máximo rendimiento:
+            Samsung Game Booster, Xiaomi/POCO Game Turbo, Realme/OPPO/OnePlus Game Space, vivo/iQOO
+            Ultra Game Mode, Infinix/Tecno Game Mode.</li>
+        <li>Instala un <b>mod de rendimiento</b> como RocketMan. El límite es el procesador, y
+            estos mods reducen directamente el costo de la simulación.</li>
+        <li>Pon un <b>Límite de FPS</b> de 60 o 30 y, en teléfonos más débiles, prueba
+            <b>Compresión de texturas: Baja</b> y una <b>Resolución de renderizado</b> menor.</li>
+        <li>En teléfonos más débiles, mantén la colonia y la lista de mods modestas, y cierra las
+            apps en segundo plano.</li>
+        <li>En teléfonos más débiles, los botones de velocidad del juego pueden no cambiar la tasa
+            de fotogramas en absoluto. Es lo esperado: el límite es la simulación, no los
+            gráficos.</li>
+    </ul>
+</section>
+
+<hr>
+
+<section id="known-issues">
+    <h2>Problemas conocidos</h2>
+
+    <h3>Pantalla negra al iniciar el juego otra vez</h3>
+    <p>
+        Si sales del juego mientras sigue en marcha y luego tocas <b>▶</b> otra vez, la pantalla
+        puede quedarse negra. En su lugar, vuelve al juego en marcha desde la pantalla de apps
+        recientes. Si ya está negra, cierra RimDroid por completo (deslízalo fuera en apps
+        recientes) e inícialo de nuevo.
+    </p>
+
+    <h3>Imagen cortada en ambos lados (OPPO y otros teléfonos con ColorOS)</h3>
+    <p>
+        El ajuste de pantalla por app <b>Ocultar cámara</b> (Hide camera) encoge el juego y corta
+        ambos lados. <b>Solución:</b> desactiva <b>Ocultar cámara</b> para RimDroid, deja
+        <b>Pantalla completa</b> (Full screen) activada, cierra la app por completo e iníciala de
+        nuevo. Los nombres de estos ajustes cambian según el teléfono; busca «pantalla completa»
+        en los ajustes del teléfono.
+    </p>
+
+    <h3>Artefactos en GPU Mali antiguas</h3>
+    <p>
+        En teléfonos con una GPU Mali antigua, la imagen puede mostrar artefactos que cambian de un
+        inicio a otro. Prueba el renderizador <b>MobileGlues</b>.
+    </p>
+</section>
+
+<hr>
+
+<section id="report">
+    <h2>Cómo reportar un problema</h2>
+    <p>
+        Abre el menú lateral, toca <b>Reportar un error</b> y elige la instancia donde ocurrió el
+        problema. RimDroid adjunta sus registros y los datos de tu teléfono a un mensaje para
+        nosotros: elige tu app de correo, describe el problema y toca <b>Enviar</b>. Repórtalo
+        justo después de que pase, mientras el registro todavía lo guarda.
+        <b>Exportar registros (ZIP)</b> guarda los mismos registros como archivo, por ejemplo para
+        adjuntarlos a un issue en GitHub.
+    </p>
+    <p>
+        Los iconos en la parte superior del menú lateral llevan a las nuevas versiones en GitHub y a
+        RimDroid en X y Reddit.
+    </p>
+</section>
+</body>
+</html>

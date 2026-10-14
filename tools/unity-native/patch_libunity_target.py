@@ -1,0 +1,37 @@
+"""Patch the Android libunity.so (2022.3.35f1, il2cpp Release arm64 — RimWorld 1.6's Unity) to accept
+serialized files built for another target: in SerializedFile::ReadMetadata<false> (little-endian files;
+found with Unity's own libunity.sym.so, the same check ValDroid patches in 6000.0.75f1 at 0xa2c270),
+    0x99e468  cmp  w1, #0xd        ->  mov w1, #0xd   (the file is treated as an Android file)
+    0x99e470  b.ne <error>         ->  nop
+and makes it open Vulkan through RimDroid's observing shim: its one dlopen("libvulkan.so") name becomes
+"libvkshim.so" (same length; the shim loads the system libvulkan.so itself, see
+unity/src/main/cpp/vkshim/vkshim.c).
+The original bytes are verified first, so the script refuses any other libunity build.
+usage: patch_libunity_target.py IN OUT
+"""
+import struct, sys
+src, dst = sys.argv[1], sys.argv[2]
+d = bytearray(open(src, "rb").read())
+ph = struct.unpack_from("<Q", d, 0x20)[0]; n = struct.unpack_from("<H", d, 0x38)[0]
+def off(va):
+    for k in range(n):
+        t, f, o, v, p, fs = struct.unpack_from("<IIQQQQ", d, ph + k * 56)
+        if t == 1 and v <= va < v + fs and f & 1:
+            return o + va - v
+    raise SystemExit("address not in an executable segment")
+CMP_W1_13 = 0x7100343F   # cmp w1, #0xd
+MOV_W1_13 = 0x528001A1   # mov w1, #0xd
+NOP = 0xD503201F
+a, b = off(0x99e468), off(0x99e470)
+cur_a, cur_b = struct.unpack_from("<I", d, a)[0], struct.unpack_from("<I", d, b)[0]
+if cur_a != CMP_W1_13 or (cur_b & 0xFF00001F) != 0x54000001:
+    raise SystemExit(f"unexpected bytes: {cur_a:#x} {cur_b:#x} - not the analysed libunity")
+struct.pack_into("<I", d, a, MOV_W1_13)
+struct.pack_into("<I", d, b, NOP)
+VULKAN, SHIM = b"libvulkan.so\0", b"libvkshim.so\0"
+if d.count(VULKAN) != 1:
+    raise SystemExit(f"expected one {VULKAN!r} in libunity, found {d.count(VULKAN)}")
+v = d.find(VULKAN)
+d[v:v + len(SHIM)] = SHIM
+open(dst, "wb").write(d)
+print("patched", dst)

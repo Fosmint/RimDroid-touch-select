@@ -1,0 +1,311 @@
+[
+  {
+    "type": "MOUSE_STICK",
+    "shape": "CIRCLE",
+    "centerXRelative": 0.8636817,
+    "centerYRelative": 0.74146485,
+    "scale": 1.0,
+    "alpha": 28,
+    "bindings": [],
+    "sensitivity": 2.0,
+    "isToggle": false
+  },
+  {
+    "type": "WASD_STICK",
+    "shape": "CIRCLE",
+    "centerXRelative": 0.11141601,
+    "centerYRelative": 0.7429297,
+    "scale": 1.0,
+    "alpha": 28,
+    "bindings": [
+      "KEY_UP",
+      "KEY_RIGHT",
+      "KEY_DOWN",
+      "KEY_LEFT"
+    ],
+    "sensitivity": 2.0,
+    "isToggle": false
+  },
+  {
+    "type": "BUTTON",
+    "shape": "CIRCLE",
+    "text": "RBC",
+    "centerXRelative": 0.74038464,
+    "centerYRelative": 0.67083335,
+    "scale": 0.7,
+    "alpha": 28,
+    "bindings": [
+      "MOUSE_RIGHT"
+    ],
+    "sensitivity": 2.0,
+    "isToggle": false,
+    "icon": "pack_rimdroid_default_right_click.png",
+    "iconNoTint": false
+  },
+  {
+    "type": "BUTTON",
+    "shape": "CIRCLE",
+    "text": "LBC",
+    "centerXRelative": 0.21538462,
+    "centerYRelative": 0.67083335,
+    "scale": 0.72,
+    "alpha": 28,
+    "bindings": [
+      "MOUSE_LEFT"
+    ],
+    "sensitivity": 2.0,
+    "isToggle": false,
+    "icon": "pack_rimdroid_default_click.png",
+    "iconNoTint": false
+  },
+  {
+    "type": "BUTTON",
+    "shape": "RECT",
+    "text": "Esc",
+    "centerXRelative": 0.053846154,
+    "centerYRelative": 0.058333334,
+    "scale": 0.55,
+    "alpha": 28,
+    "bindings": [
+      "KEY_ESCAPE"
+    ],
+    "sensitivity": 2.0,
+    "isToggle": false,
+    "icon": "pack_rimdroid_default_menu.png",
+    "iconNoTint": false
+  },
+  {
+    "type": "BUTTON",
+    "shape": "RECT",
+    "text": "Space",
+    "centerXRelative": 0.24944718,
+    "centerYRelative": 0.07426758,
+    "scale": 0.5,
+    "alpha": 28,
+    "bindings": [
+      "KEY_SPACE"
+    ],
+    "sensitivity": 2.0,
+    "isToggle": false,
+    "icon": "pack_rimdroid_default_pause.png",
+    "iconNoTint": false
+  },
+  {
+    "type": "BUTTON",
+    "shape": "CIRCLE",
+    "text": "1",
+    "centerXRelative": 0.31836897,
+    "centerYRelative": 0.07329102,
+    "scale": 0.5,
+    "alpha": 28,
+    "bindings": [
+      "KEY_1"
+    ],
+    "sensitivity": 2.0,
+    "isToggle": false,
+    "icon": "pack_rimdroid_default_speed_1.png",
+    "iconNoTint": false
+  },
+  {
+    "type": "BUTTON",
+    "shape": "CIRCLE",
+    "text": "2",
+    "centerXRelative": 0.37435132,
+    "centerYRelative": 0.07426758,
+    "scale": 0.5,
+    "alpha": 28,
+    "bindings": [
+      "KEY_2"
+    ],
+    "sensitivity": 2.0,
+    "isToggle": false,
+    "icon": "pack_rimdroid_default_speed_2.png",
+    "iconNoTint": false
+  },
+  {
+    "type": "BUTTON",
+    "shape": "CIRCLE",
+    "text": "3",
+    "centerXRelative": 0.42886886,
+    "centerYRelative": 0.07280274,
+    "scale": 0.5,
+    "alpha": 28,
+    "bindings": [
+      "KEY_3"
+    ],
+    "sensitivity": 2.0,
+    "isToggle": false,
+    "icon": "pack_rimdroid_default_speed_3.png",
+    "iconNoTint": false
+  },
+  {
+    "type": "BUTTON",
+    "shape": "RECT",
+    "text": "Tab",
+    "centerXRelative": 0.5766151,
+    "centerYRelative": 0.074072264,
+    "scale": 0.5,
+    "alpha": 28,
+    "bindings": [
+      "KEY_TAB"
+    ],
+    "sensitivity": 2.0,
+    "isToggle": false,
+    "icon": "pack_rimdroid_default_architect.png",
+    "iconNoTint": false
+  },
+  {
+    "type": "BUTTON",
+    "shape": "RECT",
+    "text": "F1",
+    "centerXRelative": 0.65323395,
+    "centerYRelative": 0.074316405,
+    "scale": 0.5,
+    "alpha": 28,
+    "bindings": [
+      "KEY_F1"
+    ],
+    "sensitivity": 2.0,
+    "isToggle": false,
+    "icon": "pack_rimdroid_default_work.png",
+    "iconNoTint": false
+  },
+  {
+    "type": "BUTTON",
+    "shape": "RECT",
+    "text": "F2",
+    "centerXRelative": 0.7288762,
+    "centerYRelative": 0.07578125,
+    "scale": 0.5,
+    "alpha": 28,
+    "bindings": [
+      "KEY_F2"
+    ],
+    "sensitivity": 2.0,
+    "isToggle": false,
+    "icon": "pack_rimdroid_default_schedule.png",
+    "iconNoTint": false
+  },
+  {
+    "type": "BUTTON",
+    "shape": "RECT",
+    "text": "F3",
+    "centerXRelative": 0.8052509,
+    "centerYRelative": 0.07542317,
+    "scale": 0.5,
+    "alpha": 28,
+    "bindings": [
+      "KEY_F3"
+    ],
+    "sensitivity": 2.0,
+    "isToggle": false,
+    "icon": "pack_rimdroid_default_assign.png",
+    "iconNoTint": false
+  },
+  {
+    "type": "BUTTON",
+    "shape": "CIRCLE",
+    "text": "E",
+    "centerXRelative": 0.040384617,
+    "centerYRelative": 0.20416667,
+    "scale": 0.5,
+    "alpha": 28,
+    "bindings": [
+      "KEY_E"
+    ],
+    "sensitivity": 2.0,
+    "isToggle": false,
+    "icon": "pack_rimdroid_default_rotate_right.png",
+    "iconNoTint": false
+  },
+  {
+    "type": "BUTTON",
+    "shape": "CIRCLE",
+    "text": "L",
+    "centerXRelative": 0.040384617,
+    "centerYRelative": 0.32083333,
+    "scale": 0.5,
+    "alpha": 28,
+    "bindings": [
+      "KEY_L"
+    ],
+    "sensitivity": 2.0,
+    "isToggle": false
+  },
+  {
+    "type": "BUTTON",
+    "shape": "CIRCLE",
+    "text": "B",
+    "centerXRelative": 0.040384617,
+    "centerYRelative": 0.4375,
+    "scale": 0.5,
+    "alpha": 28,
+    "bindings": [
+      "KEY_B"
+    ],
+    "sensitivity": 2.0,
+    "isToggle": false
+  },
+  {
+    "type": "BUTTON",
+    "shape": "CIRCLE",
+    "text": "H",
+    "centerXRelative": 0.040384617,
+    "centerYRelative": 0.5541667,
+    "scale": 0.5,
+    "alpha": 28,
+    "bindings": [
+      "KEY_H"
+    ],
+    "sensitivity": 2.0,
+    "isToggle": false
+  },
+  {
+    "type": "BUTTON",
+    "shape": "CIRCLE",
+    "text": "V",
+    "centerXRelative": 0.95576924,
+    "centerYRelative": 0.0875,
+    "scale": 0.5,
+    "alpha": 28,
+    "bindings": [
+      "TOGGLE_CONTROLS"
+    ],
+    "sensitivity": 2.0,
+    "isToggle": false,
+    "icon": "pack_rimdroid_default_toggle_controls.png",
+    "iconNoTint": false
+  },
+  {
+    "type": "BUTTON",
+    "shape": "CIRCLE",
+    "text": "KB",
+    "centerXRelative": 0.90192306,
+    "centerYRelative": 0.0875,
+    "scale": 0.5,
+    "alpha": 28,
+    "bindings": [
+      "TOGGLE_KEYBOARD"
+    ],
+    "sensitivity": 2.0,
+    "isToggle": false,
+    "icon": "pack_rimdroid_default_keyboard.png",
+    "iconNoTint": false
+  },
+  {
+    "type": "BUTTON",
+    "shape": "RECT",
+    "text": "LShift",
+    "centerXRelative": 0.17133789,
+    "centerYRelative": 0.07602539,
+    "scale": 0.5,
+    "alpha": 28,
+    "bindings": [
+      "KEY_LSHIFT"
+    ],
+    "sensitivity": 2.0,
+    "isToggle": false,
+    "icon": "pack_rimdroid_default_queue.png",
+    "iconNoTint": false
+  }
+]

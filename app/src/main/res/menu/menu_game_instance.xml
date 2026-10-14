@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_instance_storage"
+        android:title="@string/nav_manage_storage" />
+    <item
+        android:id="@+id/action_instance_shortcut"
+        android:title="@string/instance_shortcut" />
+    <item
+        android:id="@+id/action_instance_delete"
+        android:title="@string/delete_instance" />
+</menu>

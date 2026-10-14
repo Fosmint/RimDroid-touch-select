@@ -1,0 +1,105 @@
+name: Build RimDroid APK
+
+on:
+  push:
+    branches: [ main, master, dev, native-engine ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Read app version
+        id: app_version
+        shell: bash
+        run: |
+          VERSION_NAME=$(sed -nE 's/^[[:space:]]*versionName[[:space:]]+"([^"]+)".*/\1/p' app/build.gradle | head -n 1)
+          test -n "$VERSION_NAME"
+          echo "name=$VERSION_NAME" >> "$GITHUB_OUTPUT"
+
+      - name: Test MobileGlues capability filter
+        run: |
+          cc -std=c11 -Wall -Wextra -Werror app/src/test/native/mg_caps_test.c -o "$RUNNER_TEMP/mg_caps_test"
+          "$RUNNER_TEMP/mg_caps_test"
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+    
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
+
+      - name: Install NDK
+        run: |
+          echo "Installing NDK..."
+          sdkmanager "ndk;27.0.12077973" "cmake;3.22.1"
+          echo "NDK_HOME=$ANDROID_SDK_ROOT/ndk/27.0.12077973" >> $GITHUB_ENV
+
+      # Native engine (experimental): built only when the repository variable NATIVE_ENGINE is "true".
+      # Unity's Android player comes straight from Unity's download server; it is unpacked and patched
+      # by tools/unity-native/prepare_unity_module.sh. No Unity file is stored in this repository.
+      - name: Cache Unity Android Support package
+        if: vars.NATIVE_ENGINE == 'true'
+        uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}/unity-android-support.pkg
+          key: unity-android-support-2022.3.35f1-011206c7a712
+
+      - name: Prepare the native engine module and build RimDroidBridge
+        if: vars.NATIVE_ENGINE == 'true'
+        run: |
+          set -euo pipefail
+          PKG="$RUNNER_TEMP/unity-android-support.pkg"
+          [ -f "$PKG" ] || curl -fL --retry 3 -o "$PKG"             "https://download.unity3d.com/download_unity/011206c7a712/MacEditorTargetInstaller/UnitySetup-Android-Support-for-Editor-2022.3.35f1.pkg"
+          sudo apt-get update
+          sudo apt-get install -y libarchive-tools
+          # The bridge compiles with the .NET SDK's Roslyn against the Mono class libraries Unity's
+          # player runs on (tools/unity-native/monoref, MIT): Ubuntu's Mono lacks the netstandard 2.1
+          # facade UnityEngine.CoreModule references.
+          CSC_DLL=$(ls /usr/share/dotnet/sdk/*/Roslyn/bincore/csc.dll | sort -V | tail -n 1)
+          CSC_DLL="$CSC_DLL" DOTNET=dotnet MONO_API="$GITHUB_WORKSPACE/tools/unity-native/monoref/4.5"             PYTHON=python3 TAR=bsdtar sh tools/unity-native/prepare_unity_module.sh "$PKG"
+          test -s unity/prepared/assets/rimdroid_native/Managed/RimDroidBridge.dll
+          echo "ORG_GRADLE_PROJECT_nativeEngine=true" >> "$GITHUB_ENV"
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Clean
+        run: ./gradlew clean
+
+      - name: Build Debug APK
+        run: ./gradlew assembleDebug
+        env:
+          ANDROID_NDK_HOME: ${{ env.NDK_HOME }}
+
+      - name: Upload Debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: rimdroid-debug-${{ steps.app_version.outputs.name }}
+          path: app/build/outputs/apk/debug/rimdroid-debug-${{ steps.app_version.outputs.name }}.apk
+          retention-days: 30
+
+      - name: Build Release APK (unsigned)
+        run: ./gradlew assembleRelease
+        env:
+          ANDROID_NDK_HOME: ${{ env.NDK_HOME }}
+
+      - name: Upload Release APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: rimdroid-release-${{ steps.app_version.outputs.name }}
+          path: app/build/outputs/apk/release/rimdroid-release-${{ steps.app_version.outputs.name }}.apk
+          retention-days: 30

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki</title>
+    <style>
+        /* One size below the WebView default (16px): long pages read better a little smaller. */
+        body {
+            font-size: 15px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                color: #E2E2E9;
+            }
+
+            a {
+                color: #8AB4F8;
+            }
+        }
+
+        details > summary {
+            font-style: italic;
+        }
+
+        p + details,
+        div + details,
+        body > details {
+            margin-top: 1em;
+        }
+
+        .details-content {
+            padding-top: 0.5em;
+        }
+
+        code {
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        li {
+            margin-bottom: 0.3em;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><a href="#quick-start">快速开始</a></li>
+    <li>
+        <a href="#get-game">获取游戏</a>
+        <ol>
+            <li><a href="#steam-in-app">在应用内从 Steam 下载</a></li>
+            <li><a href="#gog">从 GOG</a></li>
+            <li><a href="#zip-archive">从 .zip 压缩包</a></li>
+        </ol>
+    </li>
+    <li><a href="#dlc">DLC</a></li>
+    <li><a href="#mods">模组</a></li>
+    <li><a href="#renderers">渲染器与驱动</a></li>
+    <li><a href="#picture">画面与帧率</a></li>
+    <li><a href="#controls">控制</a></li>
+    <li><a href="#saves">存档与设置</a></li>
+    <li><a href="#compat-mode">兼容模式</a></li>
+    <li><a href="#engine">引擎</a></li>
+    <li><a href="#performance">获得最佳性能</a></li>
+    <li><a href="#known-issues">已知问题</a></li>
+    <li><a href="#report">报告问题</a></li>
+</ul>
+
+<hr>
+
+<section id="quick-start">
+    <h2>快速开始</h2>
+    <p>
+        RimDroid 是一个启动器：它在 Android 上运行<b>你自己的</b> RimWorld。
+        游戏本身不包含在内。
+    </p>
+    <ol>
+        <li>你需要在 <b>Steam</b> 或 <b>GOG</b> 上拥有 <b>RimWorld</b>。RimDroid 运行的是游戏的
+            <b>Linux</b> 版本，<b>RimWorld 1.6</b>；1.5 仍可照常运行（旧版），但新功能和修复只针对 1.6。</li>
+        <li>把游戏放进应用。用 Steam 的话，打开侧边菜单，点
+            <b>Steam 下载</b>：游戏会直接下载到一个准备好的实例里。GOG 和其他方式见
+            <a href="#get-game">获取游戏</a>。</li>
+        <li><b>实例</b>就是一份安装好的游戏。每个实例在主屏幕上有自己的卡片，
+            <b>齿轮图标</b>后面是它自己的设置。你可以保留多个实例，比如 1.5 和 1.6 并存。</li>
+        <li>创建实例时，RimDroid 会检测手机的 GPU 并自动选择合适的图形驱动。</li>
+        <li>点卡片上的 <b>▶</b> 按钮。第一次启动会久一些，游戏需要准备文件。加载时不要按返回键。</li>
+    </ol>
+    <p>
+        需要 Android 11 或更新版本、64 位手机、至少 <b>6 GB 内存</b>（8 GB 以上玩得更舒服），
+        以及 5–10 GB 可用存储空间。
+    </p>
+    <p>每个界面顶部的 <b>?</b> 会打开本页中关于该界面的部分。</p>
+    <p>实例卡片的 ⋮ 菜单里有<b>添加到主屏幕</b>：一个直接启动游戏、不经过启动器的快捷方式。</p>
+    <p>出了问题？见<a href="#report">报告问题</a>。</p>
+</section>
+
+<hr>
+
+<section id="get-game">
+    <h2>获取游戏</h2>
+    <p>
+        RimDroid 需要 RimWorld 的 <b>Linux 版本</b>，来自你拥有该游戏的商店。
+        选择下面任一方式。
+    </p>
+
+    <section id="steam-in-app">
+        <h3>1. 在应用内从 Steam 下载</h3>
+        <ol>
+            <li>打开侧边菜单，点 <b>Steam 下载</b>，<b>游戏</b>标签。</li>
+            <li>选择 <b>RimWorld 1.5</b> 或 <b>RimWorld 1.6</b>，为新实例输入一个名称。</li>
+            <li>用你的 Steam 账号登录。登录信息只发给 Steam，不会保存。
+                在 Steam 手机应用里确认登录，或输入 Steam 令牌验证码。</li>
+            <li>点<b>下载</b>。游戏会直接进入新实例：不需要电脑，也不需要压缩包。</li>
+            <li>如果下载中断，用<b>同一个实例名称</b>再次开始，会从中断处继续。</li>
+        </ol>
+        <p>
+            如果想要旧版本而不是推荐版本，在高级字段里输入它的 <b>Manifest ID</b>
+            （ID 列表见 SteamDB）。否则留空。
+        </p>
+    </section>
+
+    <section id="gog">
+        <h3>2. 从 GOG</h3>
+        <ol>
+            <li>打开侧边菜单，点<b>登录 GOG</b>。在 GOG 自己的页面上用 GOG 邮箱和密码登录：
+                RimDroid 看不到你的密码。</li>
+            <li>通过关联账号（例如 Google）登录无法在应用内完成。
+                如果你平时是这样登录的，请先设置一个 GOG 密码：gog.com → 登录 → 重置密码。</li>
+            <li>点<b>检查游戏库</b>。RimWorld 会以卡片形式出现，DLC 列在它下面。</li>
+            <li>在游戏和每个想要的 DLC 上点<b>下载</b>。文件会依次下载到公共的
+                <b>Download/RimDroid</b> 文件夹；系统询问时请允许<b>所有文件访问</b>。
+                期间可以切换到其他应用。如果下载中断，再点一次按钮继续。</li>
+            <li>游戏下载完成后，它的按钮会变成<b>创建实例</b>。新实例会包含游戏和所有已经下载好的 DLC。</li>
+        </ol>
+        <details>
+            <summary>在电脑上</summary>
+            <div class="details-content">
+                <p>在 gog.com 的游戏库里下载 RimWorld 和你拥有的 DLC 的 <b>Linux</b> 安装程序（.sh 文件）。
+                    把它们全部打包进一个 <b>.zip</b> 压缩包，复制到手机上，按
+                    <a href="#zip-archive">从 .zip 压缩包</a>的说明添加。之所以需要 .zip，
+                    是因为文件管理器不能可靠地把单独的 .sh 文件交给应用。</p>
+            </div>
+        </details>
+    </section>
+
+    <section id="zip-archive">
+        <h3>3. 从 .zip 压缩包</h3>
+        <p>
+            打开侧边菜单，点<b>添加游戏实例</b>，或主屏幕顶部的 <b>+</b>。输入名称，点<b>选择 ZIP 文件</b>，
+            选中压缩包，然后点<b>安装</b>。
+        </p>
+        <ul>
+            <li>.zip 里可以是 RimWorld 的 <b>Linux</b> 版（带 <code>RimWorldLinux</code> 文件的那个，
+                外面套一层文件夹也没关系，RimDroid 能找到），或者 GOG 的游戏和 DLC 的 <b>.sh</b> 安装程序。</li>
+            <li>名称请简短：拉丁字母和数字，最多 40 个字符。</li>
+            <li>不必保留 .zip，但留着以后重装或创建同版本的另一个实例会方便。</li>
+        </ul>
+    </section>
+</section>
+
+<hr>
+
+<section id="dlc">
+    <h2>DLC</h2>
+    <ul>
+        <li><b>从 Steam：</b>在 <b>Steam 下载</b>的 <b>DLC</b> 标签里勾选你的账号拥有的 DLC，
+            点<b>下载所选 DLC</b>。每个 DLC 保存为 <b>Download/RimDroid</b> 里的一个 .zip。</li>
+        <li><b>从 GOG：</b>在<b>登录 GOG</b>里从它的卡片下载，然后在同一张卡片上点<b>安装</b>。
+            创建实例之前下载的 DLC 会自动包含进实例。</li>
+        <li><b>安装 DLC 文件：</b>打开侧边菜单，点<b>安装模组／DLC</b>，选择文件和实例，
+            打开 <b>DLC</b> 标签，点<b>安装</b>。GOG 安装程序会被自动识别。</li>
+        <li>DLC 必须与实例的游戏版本匹配：1.6 的 DLC 装进 1.6 的实例。
+            所以安装界面总会让你选择实例。</li>
+    </ul>
+</section>
+
+<hr>
+
+<section id="mods">
+    <h2>模组</h2>
+    <ul>
+        <li><b>Steam 下载</b>的<b>模组</b>标签按 ID 下载创意工坊模组：工坊链接末尾的数字
+            （<i>…/filedetails/?id=数字</i>）。不需要登录 Steam；多个 ID 用空格分隔。
+            每个模组保存为 <b>Download/RimDroid</b> 里的一个 .zip。同一标签上的
+            <b>通过浏览器下载</b>会打开一个第三方网站。</li>
+        <li>在侧边菜单的<b>安装模组／DLC</b>，<b>模组</b>标签里安装。RimDroid 会在任意 .zip 里
+            找到模组的真正文件夹（含 <code>About/About.xml</code> 的那个）。</li>
+        <li><b>创意工坊合集</b>也一样：粘贴合集的链接或 ID，就会下载其中的所有模组。</li>
+        <li>侧边菜单的<b>模组</b>列出实例的模组：上方是按加载顺序排列的<b>已启用</b>，下方是
+            <b>未启用</b>，并可搜索。开关用于启用或停用模组，垃圾桶删除下载的模组，点按查看详情。
+            <i>不适用于 1.6</i> 表示模组未声明支持此游戏版本；<i>未安装</i> 表示在列表中但缺少文件夹。
+            请先关闭游戏：游戏运行时无法更改列表。</li>
+        <li><b>排序</b>按模组作者的要求排列已启用的模组（模组依赖的模组先加载）：先 Harmony，再 Core
+            和 DLC。在做任何更改前，会显示将移动多少个模组，以及缺少（附创意工坊编号）或已停用的
+            必需模组。要手动移动模组，按住 <b>≡</b> 拖动；长按可选择<b>移到最前</b>／<b>移到最后</b>。</li>
+        <li>需要 <b>Harmony</b> 的模组可以用：像在电脑上一样，加上 Harmony 模组本身。</li>
+        <li>最多约 50 个模组的列表经过测试。更大的列表尚未测试。</li>
+        <li>实例卡片 ⋮ 菜单里的<b>管理存储</b>会在手机的文件管理器中打开该实例的文件夹，
+            方便手动添加或删除文件。</li>
+        <li>如果中文、日文或韩文不显示，请安装
+            <a href="https://www.mediafire.com/file/s4axik3wwdvrtze/RimDroidCJKmod.zip/file" target="_blank">RimDroidCJKmod</a>
+            字体模组：用<b>安装模组／DLC</b>的<b>模组</b>标签添加这个 .zip，然后在游戏的模组菜单里启用。
+            它不依赖其他模组。</li>
+    </ul>
+</section>
+
+<hr>
+
+<section id="renderers">
+    <h2>渲染器与驱动</h2>
+    <p>
+        渲染器把游戏的桌面图形转换给 Android。在实例设置（齿轮图标）的<b>视频</b>卡片里选择。
+    </p>
+
+    <h3>Zink ZFA（Vulkan）</h3>
+    <p>
+        默认且推荐的渲染器。它通过手机的 Vulkan 驱动绘制，驱动就在它下方选择。
+    </p>
+
+    <h3>MobileGlues（不用 Vulkan）</h3>
+    <p>
+        改为通过手机的 OpenGL ES 驱动绘制，完全不需要 Vulkan。实验性功能。
+        如果 Zink 黑屏或画面错乱，可以试试它；在没有骁龙（Adreno）GPU 的手机上可能有帮助。
+    </p>
+    <p>
+        使用这个渲染器时，每次启动都要把游戏纹理转换成手机的格式，多花 10–20 秒加载时间。
+        侧边菜单<b>设置</b>里的<b>纹理缓存（MobileGlues）</b>会把转换好的纹理保存在磁盘上
+        （<b>保留转换后的纹理</b>，默认开启），从第二次启动起游戏进入菜单会更快。
+        缓存由所有实例共用，带全部 DLC 时占几百 MB；<b>清除</b>会删除它，下次启动会重新填充。
+    </p>
+
+    <h3>Vulkan 驱动（用于 Zink）</h3>
+    <p>
+        创建实例时 RimDroid 会为你的 GPU 选择驱动，<b>推荐驱动（检测 GPU）</b>会再做一次同样的事。
+        如果画面不对或一直黑屏，换一个试试。
+    </p>
+    <ul>
+        <li><b>系统（手机驱动）</b>：手机自带的驱动。适用于任何 GPU，没有骁龙（Adreno）GPU 的手机应选它。</li>
+        <li><b>Turnip</b> 和 <b>Freedreno</b>：面向骁龙（Adreno）GPU 的开源驱动，
+            各自对应列表中标明的 GPU 代际（6xx、7xx、8xx、830/840）。</li>
+        <li><b>Turnip Adreno 7XX_new (v26.2)</b>：Adreno 7xx 上黑屏时第一个该试的。</li>
+        <li><b>Turnip Adreno 6xx (legacy)</b>：用于较旧的 Adreno 6xx GPU，比如骁龙 685 里的那颗。</li>
+        <li><b>自定义驱动（已导入）</b>：你自己的驱动。在侧边菜单的<b>自定义 Vulkan 驱动</b>里导入
+            （.so 文件或 AdrenoTools 的 .zip）。之后由所有实例共用。</li>
+    </ul>
+</section>
+
+<hr>
+
+<section id="picture">
+    <h2>画面与帧率</h2>
+    <p>这些都在实例设置（齿轮图标）里。</p>
+    <ul>
+        <li><b>渲染分辨率</b>：分辨率越低，弱 GPU 上 FPS 越高，界面也越大；
+            以手机自身分辨率全屏最清晰。<b>黑边 1280×720</b> 最快。</li>
+        <li><b>纹理压缩</b>缩小纹理以节省内存并提高 FPS，在较弱的手机上加载多个 DLC 时必需。
+            主要影响植物和资源；殖民者和动物不受影响。<b>低</b>是不错的平衡，
+            <b>极低</b>更快一点，但植物会显得模糊。</li>
+        <li><b>游戏内显示</b>：<b>FPS</b> 在左上角显示帧率；<b>完整信息</b>在顶部显示一条状态栏，
+            含 GPU 和 CPU 负载、内存、功耗、温度和 FPS 曲线——方便看出是什么拖慢了游戏。下次启动生效。</li>
+        <li><b>帧率上限</b>（30、60 或不限制）可以减少波动，把更多处理器资源留给游戏，
+            在较弱的手机上能提高游戏速度。如果计数器跳动不停，试试 60 或 30。</li>
+    </ul>
+</section>
+
+<hr>
+
+<section id="controls">
+    <h2>控制</h2>
+
+    <h3>触控</h3>
+    <ul>
+        <li><b>点一下</b>是左键点击。</li>
+        <li><b>手指按住不动</b>片刻是右键点击，用来下达“移动到这里”之类的命令。短暂震动表示已触发。</li>
+        <li><b>双指捏合</b>缩放。</li>
+        <li>用左摇杆移动视角。要改为单指拖动地图，在实例设置里打开<b>单指拖动地图平移视角</b>。</li>
+    </ul>
+
+    <h3>屏幕控件</h3>
+    <ul>
+        <li>默认布局有一个鼠标光标摇杆、一个视角摇杆、左键和右键、菜单（Esc）、暂停（空格）、
+            游戏速度 1–3、建筑（Tab）、工作、日程和分配标签（F1–F3）、旋转（E）、
+            用于排队命令的 Shift，以及游戏快捷键 B、H 和 L。按钮显示图标；眼睛按钮隐藏／显示控件，
+            键盘按钮打开手机键盘。</li>
+        <li>在侧边菜单的<b>编辑屏幕控件</b>里修改（有多个实例时会询问是哪个）：点一个元素选中它，
+            拖动来移动。<b>添加</b>创建绑定到任意按键或鼠标动作的按钮；<b>重置</b>恢复默认布局。
+            网格按钮在<b>网格：关</b>（自由放置）、<b>网格：小</b>（精细网格，精确放置）和
+            <b>网格：大</b>（粗网格，让按钮整齐对齐）之间切换。</li>
+        <li>侧边菜单的<b>按钮图标</b>用图片代替按钮文字：选择实例，在图标包旁边按<b>应用</b>，
+            每个按钮都会得到其动作对应的图标。RimDroid 自带一个图标包；<b>导入图标包（zip）</b>添加你自己的，
+            图标包旁边的<b>移除</b>会去掉它的图标、恢复文字。“应用”在不会产生任何改变时显示为灰色。
+            在编辑器里，<b>图标</b>对打开的布局做同样的事，每个按钮自己的面板里有<b>选择图标</b>和<b>移除图标</b>。
+            图标包是一个 PNG 图片的 .zip，透明背景白色图案，按动作命名：click, right_click, middle_click, zoom_in,
+            zoom_out, menu, pause, accept, speed_1 到 speed_4, architect, work, schedule, assign,
+            animals, wildlife, research, quests, world, history, rotate_left, rotate_right, queue,
+            forbid, prev_colonist, next_colonist, camera_up, camera_down, camera_left, camera_right,
+            keyboard, toggle_controls。可选的 pack.json 给它命名：
+            <code>{"format": 1, "name": "My icons"}</code>；彩色图片请加上 <code>"tint": false</code>。</li>
+        <li>侧边菜单的<b>导入／导出控件</b>把实例的布局保存为 .json 文件或从文件加载。
+            文件里不含图标：在另一台手机上请在那里应用图标包。</li>
+    </ul>
+
+    <h3>输入文字</h3>
+    <p>
+        要在游戏里输入文字，比如给殖民者改名，先点文本框，再点键盘按钮：
+        手机键盘会打开，输入的内容进入游戏。再点一次关闭。
+        仅支持 RimWorld 1.6，且只能输入拉丁字母。
+    </p>
+
+    <h3>手柄、鼠标和键盘</h3>
+    <ul>
+        <li>实体<b>手柄</b>可用：右摇杆移动光标，左摇杆移动视角，扳机键点击，肩键缩放。
+            如果按键错位，在实例设置的<b>手柄映射</b>里修正：点<b>开始</b>，为每个动作按下你想用的按键。</li>
+        <li>实体<b>鼠标和键盘</b>也可以用。</li>
+        <li>游戏始终横屏运行。<b>画面翻转（180°）</b>用于把手机反着夹的手柄或支架。下次启动生效。</li>
+    </ul>
+</section>
+
+<hr>
+
+<section id="saves">
+    <h2>存档与设置</h2>
+    <ul>
+        <li>侧边菜单的<b>导入 / 导出存档</b>以 .zip 形式把实例的存档导出和导入：
+            用于备份，或转移到另一个实例或手机。</li>
+        <li><b>导入 / 导出设置</b>对游戏设置做同样的事：选项、按键绑定、模组列表和模组设置。</li>
+        <li><b>Steam 云存档</b>：如果你也在电脑上通过 Steam 玩 RimWorld，它会把云存档拉到手机上，
+            并把手机的存档发回去。登录在 Steam 手机应用里确认，所以那里必须开启 Steam 令牌。
+            两边都有同名存档时，由你选择保留哪一个。发送前请关闭游戏。</li>
+    </ul>
+</section>
+
+<hr>
+
+<section id="compat-mode">
+    <h2>兼容模式</h2>
+    <p>
+        在实例设置的<b>高级</b>卡片里（点标题展开）。游戏无法启动时打开：黑屏，或卡在加载。
+        开启后游戏会稍慢，不需要时请关掉。这是一个变通方案，不一定对每台手机都有效。
+    </p>
+    <p>
+        同一卡片里还有<b>调试模式</b>（写更详细的日志）和<b>环境变量</b>。
+        除非我们请你修改，否则两者都请保持原样。
+    </p>
+</section>
+
+<section id="engine">
+    <h2>引擎</h2>
+    <p>
+        在实例设置（齿轮图标）里，第一张卡片。仅限 RimWorld 1.6：1.5 的实例始终以第一种方式运行。
+    </p>
+    <ul>
+        <li><b>完全模拟（box64）</b>：一切通过 x86 模拟运行。兼容性最好，速度最慢。</li>
+        <li><b>box64 + 原生 Mono</b>：引擎被模拟，游戏和模组的代码原生运行。更快；以前的默认选项。</li>
+        <li><b>原生引擎（实验性）</b>：为 Android 构建的游戏引擎，无需模拟。最快，占用内存最少。仅支持 Vulkan。
+            新实例默认使用它；已经玩过的实例保持原来的引擎，直到你在这里切换——启动器会提示一次有新引擎可用。</li>
+    </ul>
+    <p>原生引擎的不同之处：</p>
+    <ul>
+        <li>渲染器和 Vulkan 驱动设置不起作用：它始终直接通过 Vulkan 绘制。引擎选项下方的 <b>Vulkan 兼容性</b>：
+            “自动”会在已知需要它的 GPU（Mali-G615）上开启；如果画面在标志或菜单处卡住而游戏仍在运行，请开启。</li>
+        <li><b>纹理压缩</b>（无 / 低 / 极低）在这里同样有效，但只缩小大纹理；图标和殖民者保持清晰。
+            新实例默认为“低”：8 GB 内存的手机加很多模组时，没有它游戏可能无法加载。</li>
+        <li>分辨率预设和 box64 上一样：<b>黑边 1280×720</b> 把游戏画在带黑边的 16:9 框里。</li>
+        <li>鼠标滚轮可以缩放地图和滚动列表，和电脑上一样（列表需要 Harmony 模组）。双指捏合和 Zoom in / Zoom out 按钮作用相同。</li>
+        <li>启动时可能出现“无法初始化 Steam”的提示：点 Ignore。</li>
+        <li>如果出了问题，在这里切回 box64 + 原生 Mono；三种引擎的存档是通用的。</li>
+    </ul>
+    <p><b>报告问题</b>会附上原生引擎自己的日志。</p>
+</section>
+
+<hr>
+
+<section id="performance">
+    <h2>获得最佳性能</h2>
+    <p>
+        RimWorld 对处理器要求很高，模拟又增加了负担。三个殖民者的新开局很轻松；
+        一个有很多殖民者和模组的大型老殖民地要重得多，强力手机也能感觉到。
+    </p>
+    <ul>
+        <li>打开手机的<b>游戏加速</b>并设为最高性能档：三星 Game Booster、小米/POCO 游戏加速、
+            Realme/OPPO/一加游戏空间、vivo/iQOO 电竞模式、Infinix/Tecno 游戏模式。</li>
+        <li>安装 RocketMan 之类的<b>性能模组</b>。瓶颈在处理器，这些模组直接减少模拟运算的开销。</li>
+        <li>把<b>帧率上限</b>设为 60 或 30，较弱的手机上试试<b>纹理压缩：低</b>和更低的<b>渲染分辨率</b>。</li>
+        <li>较弱的手机上殖民地和模组列表都别太大，并关闭后台应用。</li>
+        <li>较弱的手机上，游戏速度按钮可能完全不改变帧率。这是正常的：瓶颈在模拟运算，不在图形。</li>
+    </ul>
+</section>
+
+<hr>
+
+<section id="known-issues">
+    <h2>已知问题</h2>
+
+    <h3>再次启动游戏后黑屏</h3>
+    <p>
+        如果游戏还在运行时你退出了它，然后又点 <b>▶</b>，屏幕可能一直黑着。
+        请改为从最近任务界面回到正在运行的游戏。如果已经黑屏，彻底关闭 RimDroid
+        （在最近任务里划掉）再重新启动。
+    </p>
+
+    <h3>画面两侧被裁掉（OPPO 及其他 ColorOS 手机）</h3>
+    <p>
+        按应用的显示设置<b>隐藏摄像头</b>会缩小游戏并裁掉两侧。
+        <b>解决：</b>为 RimDroid 关闭<b>隐藏摄像头</b>，保持<b>全屏</b>开启，彻底关闭应用再启动。
+        这些设置在不同手机上名称不同；在手机设置里搜索“全屏”。
+    </p>
+
+    <h3>较旧的 Mali GPU 上画面异常</h3>
+    <p>
+        在较旧的 Mali GPU 手机上，画面可能出现每次启动都不一样的异常。试试 <b>MobileGlues</b> 渲染器。
+    </p>
+</section>
+
+<hr>
+
+<section id="report">
+    <h2>报告问题</h2>
+    <p>
+        打开侧边菜单，点<b>报告问题</b>，然后选择出问题的实例。RimDroid 会把日志和手机信息
+        附在一封给我们的邮件里：选择你的邮件应用，描述问题，点<b>发送</b>。
+        请在问题发生后尽快报告，趁日志里还有记录。<b>导出日志（ZIP）</b>把同样的日志保存为文件，
+        比如用来附在 GitHub issue 里。
+    </p>
+    <p>
+        侧边菜单顶部的图标通向 GitHub 上的新版本以及 RimDroid 的 X 和 Reddit。
+    </p>
+</section>
+</body>
+</html>

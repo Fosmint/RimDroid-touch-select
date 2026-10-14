@@ -1,0 +1,13 @@
+RimDroid Default Icon Pack artwork
+
+Original artwork created for RimDroid by RimDroid. Dedicated to the public domain under
+CC0 1.0 Universal. To the extent this dedication is not effective in a particular jurisdiction,
+the authors grant everyone a worldwide, royalty-free, non-exclusive, irrevocable and perpetual
+licence to use, reproduce, modify, adapt, publish, distribute, perform, display and create
+derivative works from the artwork for any purpose, including commercial purposes, without
+conditions. No RimWorld artwork or third-party icon set was used.
+
+The icons were drawn with the help of AI tools for RimDroid (architect, work, schedule and assign
+as 256-pixel PNGs without vector sources; the rest have SVG sources in docs/icon_sources/).
+
+CC0 1.0 Legal Code: https://creativecommons.org/publicdomain/zero/1.0/legalcode

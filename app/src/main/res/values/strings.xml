@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RimDroid</string>
+    <string name="launch">Launch</string>
+    <string name="stop">Stop</string>
+    <string name="install_instance">Install Instance (ZIP)…</string>
+    <string name="no_instances">No instances installed</string>
+    <string name="choose_instance_prompt">— Choose an instance —</string>
+    <string name="choose_instance_first">Choose an instance to install into</string>
+    <string name="incomplete_game_title">Incomplete game files</string>
+    <string name="incomplete_game_msg">This instance can\'t start — these game files are missing or incomplete:\n\n%1$s\n\nThis usually means a download didn\'t finish. Download the game again using the SAME instance name and it will continue where it stopped.</string>
+    <string name="delete_instance">Delete instance</string>
+    <string name="instance_shortcut">Add to home screen</string>
+    <string name="instance_shortcut_long">RimWorld — %1$s</string>
+    <string name="instance_shortcut_unsupported">This launcher does not allow apps to add shortcuts.</string>
+    <string name="more_options">More options</string>
+    <string name="delete_instance_confirm">Delete instance \"%1$s\" and all its files? This cannot be undone.</string>
+    <string name="log">Log</string>
+    <string name="renderer">Renderer</string>
+    <string name="renderer_info">RimDroid currently renders only through Zink ZFA.</string>
+    <string name="vulkan_driver">Vulkan driver</string>
+    <string name="vulkan_driver_hint">Pick the driver that matches your GPU — non-Snapdragon devices should choose the System driver. If not works try another one.</string>
+    <string name="driver_recommend">Recommended driver (detect GPU)</string>
+    <string name="upload_custom_driver">Upload your custom driver</string>
+    <string name="drag_pan_label">Drag the map with a finger to pan</string>
+    <string name="reverse_landscape_label">Mirror the picture (180°)</string>
+    <string name="nav_cloud_saves">Steam Cloud saves</string>
+    <string name="cloud_saves_title">Steam Cloud saves</string>
+    <string name="cloud_saves_hint">If you also play RimWorld on a PC through Steam, your saves are synced to Steam Cloud — this pulls them onto the phone.\n\nSigning in is confirmed through the Steam Mobile app: you must have signed into it at least once and turned Steam Guard on there. When you tap the button, Steam sends an approval request to that app. The password goes straight to Steam and is never stored here.</string>
+    <string name="cloud_saves_user">Steam username</string>
+    <string name="cloud_saves_pass">Steam password</string>
+    <string name="cloud_saves_instance">Copy the saves into</string>
+    <string name="cloud_saves_pull">Get saves from Steam Cloud</string>
+    <string name="cloud_saves_push">Send saves to Steam Cloud</string>
+    <string name="cloud_saves_pull_note">Everything in your cloud is downloaded first, then copied into this instance. If a save of the same name is already here, you get to choose which one to keep.</string>
+    <string name="cloud_saves_push_note">Saves the cloud does not have yet are sent straight away. Anything that would replace a save already up there is listed first, so you can decide. Close the game before sending.</string>
+    <string name="cloud_saves_log_connecting">Connecting to Steam…</string>
+    <string name="cloud_saves_log_placed">Copied in: %1$s</string>
+    <string name="cloud_saves_log_kept">Kept the copy on this phone: %1$s</string>
+    <string name="cloud_saves_place_done">Done: %1$d copied in, %2$d left as they were.</string>
+    <string name="cloud_saves_clash_title">%1$s is already here</string>
+    <string name="cloud_saves_clash_msg">On this phone: %1$s
+In the cloud: %2$s
+
+%3$s</string>
+    <string name="cloud_saves_clash_cloud_newer">The cloud copy is newer.</string>
+    <string name="cloud_saves_clash_local_newer">The copy on this phone is newer.</string>
+    <string name="cloud_saves_clash_replace">Use the cloud one</string>
+    <string name="cloud_saves_clash_keep">Keep mine</string>
+    <string name="cloud_saves_clash_both">Keep both</string>
+    <string name="cloud_saves_clash_in_cloud">in the cloud: %1$s</string>
+    <string name="cloud_saves_clash_on_phone">on this phone: %1$s</string>
+    <string name="cloud_saves_from_cloud_suffix">(from cloud)</string>
+    <string name="cloud_saves_push_replace">Replace them</string>
+    <string name="cloud_saves_push_only_new">Only send new ones</string>
+    <string name="cloud_saves_dir_pull">From cloud</string>
+    <string name="cloud_saves_dir_push">To cloud</string>
+    <string name="cloud_saves_keepalive">Syncing saves with Steam — you can switch to Steam Mobile to approve</string>
+    <string name="cloud_saves_push_confirm_title">Send saves to the cloud?</string>
+    <string name="cloud_saves_push_confirm_replace">These already exist in the cloud and will be REPLACED by the phone\'s copy — your PC will load this version instead:\n\n• %1$s\n\nMake sure the game is closed on both devices.</string>
+    <string name="cloud_saves_no_instances">No instances yet</string>
+    <string name="cloud_saves_need_login">Enter your Steam username and password</string>
+    <string name="cloud_saves_code_title">Enter Steam Guard code</string>
+    <string name="cloud_saves_code_wrong">Code incorrect — try again</string>
+    <string name="cloud_saves_code">Steam Guard code</string>
+    <string name="cloud_saves_code_email">Code emailed to %1$s</string>
+    <string name="reverse_landscape_hint">Flips the game to the opposite landscape — still fixed, no free rotation. Turn on if your gamepad or cradle holds the phone the other way up.</string>
+    <string name="compat_mode_label">Compatibility mode</string>
+    <string name="compat_mode_hint">Turn on if the game won\'t start (black screen / stuck on loading). A bit slower, but helps it launch on some devices.</string>
+    <string name="native_mono_label">Native ARM64 Mono (experimental)</string>
+    <string name="native_mono_hint">Runs the game\'s own code natively instead of through x86 emulation. Usually faster and smoother at high game speed, especially in large colonies. RimWorld 1.6 only. Experimental: back up your saves first, and turn it off if something breaks.</string>
+    <string name="native_engine_label">Native engine (experimental)</string>
+    <string name="native_engine_hint">Runs the game on an Android build of its engine, without emulation. RimWorld 1.6 only. Early test: back up your saves first.</string>
+    <string name="native_engine_failed">Could not start the native engine: %1$s</string>
+    <string name="texcache_title">Preparing textures</string>
+    <string name="texcache_message">New or changed textures are being converted for the native engine. This happens once; the game loads faster and uses less memory afterwards.</string>
+    <string name="texcache_progress">%1$d / %2$d</string>
+    <string name="texcache_skip">Skip</string>
+    <string name="texcache_game_assets">Game textures…</string>
+    <string name="native_mono_off_msg">The game will run in the previous, slower mode. If you turned it off because of a problem, please send us the logs — it helps us fix it.</string>
+    <string name="native_mono_crash_title">The game failed to start</string>
+    <string name="native_mono_crash_msg">RimWorld crashed twice in a row while starting with Native ARM64 Mono. Turn it off and start the game the usual way? You can turn it back on in this instance\'s settings.</string>
+    <string name="native_mono_crash_off">Turn off and play</string>
+    <string name="native_mono_crash_keep">Keep it on</string>
+    <string name="haptic_label">Vibrate on button press</string>
+    <string name="audio_label">Game sound</string>
+    <string name="hud_label">In-game display</string>
+    <string name="hud_off">Off</string>
+    <string name="hud_fps">FPS</string>
+    <string name="hud_full">Full info</string>
+    <string name="hud_hint">Full info shows a bar at the top: GPU and CPU load, memory, power draw, temperature and an FPS graph. Handy to see what slows the game down.</string>
+    <string name="fps_cap_label">Frame rate limit</string>
+    <string name="fps_cap_hint">Caps FPS to smooth out swings and free the CPU for the game — which can raise the game speed (TPS) on weaker devices. Try 60 or 30 if the counter jumps around.</string>
+    <string name="texq_label">Texture compression</string>
+    <string name="texq_hint">Shrinks textures to save memory and gain FPS — needed to load several DLC on weaker phones. It mainly affects vegetation and resources; pawns and animals are never touched. Low is a good balance; Ultra low is a bit faster but plants look blurry.</string>
+    <string name="texq_no">No</string>
+    <string name="texq_low">Low</string>
+    <string name="texq_ultra">Ultra low</string>
+    <string name="fps_cap_30">30 FPS</string>
+    <string name="fps_cap_60">60 FPS</string>
+    <string name="fps_cap_off">No limit</string>
+    <string name="render_res_label">Render resolution</string>
+    <string name="render_res_relative">Fullscreen</string>
+    <string name="render_res_fixed_169">Black margins 1280×720 — fastest</string>
+    <string name="render_res_fullscreen">fullscreen</string>
+    <string name="render_res_black_margins">black margins</string>
+    <string name="render_res_hint">Lower = more FPS on weak GPUs and a bigger UI. Native = sharpest.</string>
+    <string name="driver_recommend_result">GPU: %1$s → %2$s</string>
+    <string name="driver_auto_set_title">Recommended driver set</string>
+    <string name="driver_auto_set">Detected GPU: %1$s.\n\nThe recommended Vulkan driver was set for this instance: %2$s.\n\nIf you get a black screen or artifacts, change it in the instance settings (the gear icon on the instance card).</string>
+    <string name="nav_import_mods">Import Mods (ZIP)…</string>
+    <string name="nav_export_logs">Export logs (ZIP)</string>
+    <string name="nav_updates">New versions (GitHub)</string>
+    <string name="nav_bug_report">Report a bug</string>
+    <string name="nav_wiki">Wiki</string>
+    <string name="wiki_more">More in the wiki</string>
+    <string name="launcher_empty_title">Getting started</string>
+    <string name="launcher_empty_quick_start">Quick start</string>
+    <string name="launcher_empty_steam">Download from Steam</string>
+    <string name="launcher_empty_gog">Download from GOG</string>
+    <string name="launcher_empty_guide">To start playing, create an instance — an installed copy of RimWorld. Add your game files with the + at the top, or download the game straight from Steam or GOG with the buttons below. From Steam the instance is created by itself; from GOG, with the “Create an instance” button.</string>
+    <!-- "What's new" dialog, shown once per version (LauncherFragment.maybeShowReleaseNotes). English
+         only, like the release notes it is cut from. Read with getText, so <b>/<i> are kept; keep it on
+         one line, because a line break inside a string resource turns into a leading space. -->
+    <string name="release_notes_title">What\'s new in v%1$s</string>
+    <string name="release_notes_body"><b>– Native engine for RimWorld 1.6 (experimental)</b>\nThe game\'s own engine built for Android, nothing emulated: the fastest way to play and the lightest on memory. New instances start on it; older ones switch in the instance settings.\n\n<b>– Textures prepared once</b>\nThe first start converts the mods\' textures for your phone; later loads are faster and lighter.\n\n<b>– Mods screen</b>\nSide menu → <b>Mods</b>: switch mods on and off, delete them, <b>Sort</b> the load order, drag by ≡.\n\n<b>– Workshop collections</b>\nPaste a collection link or ID into the mod downloader: every mod in it is fetched.\n\n<b>– Home-screen shortcuts</b>\nThe instance\'s ⋮ menu → <b>Add to home screen</b>.\n\n<b>– Also new</b>\nImport / export in two screens instead of four menu items, square buttons in the controls editor, Simplified Chinese.\n\n<b>– Fixes</b>\nNo crash before the menu on vivo phones; typing works with Gboard.\n\n<i>RimWorld 1.5 is legacy, 1.6 is the default download. Before updating, back up your saves: side menu → Import / export saves.</i></string>
+    <!-- Drawer footer icon labels (accessibility) -->
+    <string name="link_x">RimDroid on X</string>
+    <string name="link_reddit">RimDroid on Reddit</string>
+    <string name="link_support">Support the developer</string>
+    <string name="link_soon">Coming soon</string>
+    <!-- Captions shown under each drawer-footer icon. Brand names stay untranslated. -->
+    <string name="nav_label_github" translatable="false">GitHub</string>
+    <string name="nav_label_x" translatable="false">X</string>
+    <string name="nav_label_reddit" translatable="false">Reddit</string>
+    <string name="nav_label_donate">Donate</string>
+    <string name="nav_label_zomdroid" translatable="false">Zomdroid</string>
+    <!-- Cross-promo dialog for the sibling launcher. -->
+    <string name="zomdroid_dialog_message">Zomdroid runs Project Zomboid on Android, the same way this launcher runs RimWorld. Same author, same approach.\n\nhttps://github.com/udarmolota/Zomdroid/releases</string>
+    <string name="zomdroid_url" translatable="false">https://github.com/udarmolota/Zomdroid/releases</string>
+    <!-- Bug report email. Number = the tap date as ddMMyyyy, filled at runtime. -->
+    <string name="bug_report_email" translatable="false">210478@mail.ru</string>
+    <string name="bug_report_subject">RIMDROID REPORT %1$s</string>
+    <string name="bug_report_body">Hi, I have a new bug report.\n\nDescription: \n\n\n---\n%1$s</string>
+    <string name="bug_report_no_mail">No email app found on this device.</string>
+    <!-- Support dialog (heart icon). ko-fi link is made clickable at runtime. -->
+    <string name="donate_title">Support development</string>
+    <string name="donate_message">Enjoying RimDroid and want to support it?\n\nMade and maintained by: ko-fi.com/udarmolota\n\nEvery bit helps keep the work going. Thank you! ❤</string>
+    <!-- External links. url_x carries what url_reddit used to. -->
+    <string name="url_github_releases" translatable="false">https://github.com/udarmolota/rimdroid/releases</string>
+    <string name="url_x" translatable="false">https://x.com/rimdroid</string>
+    <string name="url_reddit_sub" translatable="false">https://www.reddit.com/r/rimdroid/</string>
+    <string name="on_screen_controls">On-screen controls</string>
+    <string name="edit_controls">Edit on-screen controls</string>
+    <string name="editor_bg_set">Background</string>
+    <string name="editor_bg_clear">No BG</string>
+    <string name="editor_grid_small">Grid: small</string>
+    <string name="editor_grid_large">Grid: large</string>
+    <string name="editor_grid_off">Grid: off</string>
+    <string name="editor_add">Add</string>
+    <string name="nav_icon_packs">Button icons</string>
+    <string name="nav_controls_transfer">Import / export controls</string>
+    <string name="icon_packs_title">Icon packs</string>
+    <string name="icon_packs_note">Pictures for all on-screen buttons at once instead of their text labels. Pick the instance and press Apply next to a pack; buttons the pack has no picture for keep their label. One button at a time: the controls editor, Icons.</string>
+    <string name="icon_packs_howto">How to make a pack yourself</string>
+    <string name="icon_packs_format">A .zip of PNG pictures, square, 256 pixels, white on a transparent background: the button paints them like its label. To keep the pictures\' own colours, add a pack.json with \"tint\": false. Name each file after the action it shows: %1$s. Other PNG files in the zip can be picked by hand in the editor. An optional pack.json names the pack: {\"format\": 1, \"name\": \"My icons\"}.</string>
+    <string name="icon_packs_instance">Instance</string>
+    <string name="icon_packs_apply">Apply</string>
+    <string name="icon_packs_delete">Delete</string>
+    <string name="icon_packs_import">Import a pack (zip)</string>
+    <string name="icon_packs_none">No icon packs yet. Import a zip of PNG pictures.</string>
+    <string name="icon_packs_count">%1$d pictures</string>
+    <string name="icon_packs_builtin">built in</string>
+    <string name="icon_packs_applied">Icons applied to %1$d buttons of %2$s</string>
+    <string name="icon_packs_applied_none">No button of this layout matches a picture of the pack</string>
+    <string name="icon_packs_apply_failed">Could not read the layout</string>
+    <string name="icon_packs_apply_confirm">Apply the pack «%1$s» to the layout of %2$s? Buttons it has a picture for show that picture instead of their current icon or label.</string>
+    <string name="icon_packs_delete_confirm">Delete the pack «%1$s»? Buttons that already show its pictures keep them.</string>
+    <string name="icon_packs_imported">Pack «%1$s» imported: %2$d pictures</string>
+    <string name="icon_packs_import_failed">Could not import the pack: %1$s</string>
+    <string name="controls_transfer_import_title">Import a layout</string>
+    <string name="controls_transfer_import_hint">A controls .json exported from RimDroid. It replaces this instance\'s on-screen controls.</string>
+    <string name="controls_transfer_import">Import…</string>
+    <string name="controls_transfer_import_confirm">Replace the on-screen controls of %1$s with %2$s?</string>
+    <string name="controls_transfer_export_title">Export the layout</string>
+    <string name="controls_transfer_export_hint">Saves this instance\'s on-screen controls as a .json, to keep or to share. Icons are not included: on another phone the buttons show their labels until an icon pack is applied there.</string>
+    <string name="controls_transfer_export">Export…</string>
+    <string name="controls_imported">Controls layout imported into %1$s. Reopen the game to see it.</string>
+    <string name="controls_import_failed">Could not import the layout: %1$s</string>
+    <string name="controls_exported">Controls layout exported</string>
+    <string name="controls_export_failed">Could not export the layout: %1$s</string>
+    <string name="editor_icons_remove">Remove icons from all buttons</string>
+    <string name="editor_icons_removed">Icons removed from %1$d buttons</string>
+    <string name="icon_packs_unapply">Remove</string>
+    <string name="icon_packs_applied_count">applied to %1$d buttons</string>
+    <string name="icon_packs_remove_confirm">Remove the icons of «%1$s» from the layout of %2$s? Those buttons show their labels again.</string>
+    <string name="icon_packs_removed">Icons removed from %1$d buttons of %2$s</string>
+    <string name="editor_icons">Icons</string>
+    <string name="editor_icons_apply">Apply an icon pack to all buttons</string>
+    <string name="editor_icons_import">Import an icon pack (zip)…</string>
+    <string name="editor_icons_delete">Delete an imported pack…</string>
+    <string name="editor_icons_pick_pack">Choose an icon pack</string>
+    <string name="editor_icons_none_yet">No icon packs yet. Import a zip of PNG icons with Icons → Import an icon pack. The wiki lists the file names for each action.</string>
+    <string name="editor_icons_applied">Icons applied to %1$d buttons</string>
+    <string name="editor_icons_imported">Icon pack “%1$s” added (%2$d icons)</string>
+    <string name="editor_icons_import_failed">Could not import the pack: %1$s</string>
+    <string name="editor_icons_no_imported">There are no imported icon packs</string>
+    <string name="editor_icons_deleted">Deleted “%1$s”. Buttons keep the icons they already have.</string>
+    <string name="editor_icon_label">Icon: %1$s</string>
+    <string name="editor_icon_none">none (shows the label)</string>
+    <string name="editor_icon_choose">Choose icon</string>
+    <string name="editor_icon_remove">Remove icon</string>
+    <string name="editor_reset">Reset</string>
+    <string name="editor_done">Done</string>
+    <string name="editor_delete">Delete element</string>
+    <string name="editor_reset_confirm">Reset all on-screen controls to the default layout?</string>
+    <string name="nav_launcher">Launcher</string>
+    <string name="nav_settings">Settings</string>
+    <string name="app_settings_theme">Theme</string>
+    <string name="etc2_cache_title">Texture cache (MobileGlues)</string>
+    <string name="etc2_cache_hint">On the MobileGlues renderer the game\'s textures are converted to the phone\'s format on every launch, which takes 10–20 seconds of loading. The cache keeps the converted textures on disk, so from the second launch on the game reaches the menu faster. Shared by all instances; the first launch after a game update fills it again.</string>
+    <string name="etc2_cache_switch">Keep converted textures</string>
+    <string name="etc2_cache_size">Cache size: %1$s</string>
+    <string name="etc2_cache_clear">Clear</string>
+    <string name="etc2_cache_cleared">Texture cache cleared</string>
+    <string name="etc2_cache_clear_failed">Could not delete the texture cache</string>
+    <string name="app_settings_note">Game settings (renderer, driver, debug, render scale, controls) are per-instance — open them from a game card\'s gear icon.</string>
+    <string name="theme_system">Follow system</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="custom_driver_title">Custom Vulkan driver</string>
+    <string name="custom_driver_note">Import a Vulkan/Turnip driver (a raw .so or an AdrenoTools .zip). Then, in a game card\'s gear → Vulkan driver, pick \"Custom driver (imported)\". The driver is shared by all instances on this device.</string>
+    <string name="custom_driver_import">Import driver (.so / .zip)</string>
+    <string name="custom_driver_remove">Remove</string>
+    <string name="custom_driver_status_none">No custom driver imported.</string>
+    <string name="custom_driver_status_installed">Imported ✓ (%1$s)</string>
+    <string name="custom_driver_importing">Importing driver…</string>
+    <string name="custom_driver_imported">Custom driver imported (%1$s)</string>
+    <string name="custom_driver_import_failed">Import failed: %1$s</string>
+    <string name="custom_driver_removed">Custom driver removed</string>
+    <string name="nav_new_instance">Add game instance</string>
+    <string name="nav_download_game">Steam Downloads</string>
+    <string name="nav_install_content">Install mod / DLC (ZIP)</string>
+    <string name="nav_custom_driver">Custom Vulkan driver</string>
+    <string name="install_content_note">Pick a .zip (mod or DLC) from your phone, choose the instance and type, then Install.</string>
+    <string name="install_content_instance">Install into instance</string>
+    <string name="install_content_type">Type</string>
+    <string name="install_content_mod">MODS</string>
+    <string name="install_content_dlc">DLC</string>
+    <string name="install_content_pick">Choose ZIP file</string>
+    <string name="install_content_no_file">No file selected</string>
+    <string name="install_content_go">Install</string>
+
+    <!-- Download screen -->
+    <string name="download_game_title">Download RimWorld from Steam</string>
+    <string name="download_version_note">Downloads the Linux build straight into a new instance — no Termux, no PC.</string>
+    <string name="download_instance_hint">Instance name (e.g. RimWorld 1.5)</string>
+    <string name="download_version_label">Game version</string>
+    <string name="download_version_15">RimWorld 1.5 (legacy)</string>
+    <string name="download_version_16">RimWorld 1.6</string>
+    <string name="download_user_hint">Steam username</string>
+    <string name="download_pass_hint">Steam password</string>
+    <string name="download_login_note">Your login is sent to Steam (the same way DepotDownloader works) and is NOT stored. Approve the sign-in in your Steam Mobile app, or enter the Steam Guard code when asked.</string>
+
+    <!-- GOG sign-in. Deliberately NOT the Steam wording: a WebView login cannot work without
+         leaving cookies in this app\'s store, so promising that nothing is kept would be false. -->
+    <string name="nav_gog_login">Sign in to GOG</string>
+    <string name="gog_login_note">Sign in with your GOG e-mail and password. Signing in through a linked account does not complete inside an app — if that is how you normally log in, set a GOG password first: gog.com → Sign in → Password reset.</string>
+    <string name="gog_disclaimer_title">Disclaimer</string>
+    <string name="gog_disclaimer_text">RimDroid never sees your password — you type it on GOG\'s own page. The access token is kept in memory only and is gone when the app closes; the sign-in cookies stay in this app\'s private storage so you are not asked every time, and signing out clears both.</string>
+    <string name="gog_login_finishing">Completing sign-in…</string>
+    <string name="gog_login_ok">Signed in to GOG</string>
+    <string name="gog_login_failed">Sign-in failed: %1$s</string>
+    <string name="gog_user_id">User ID: %1$s</string>
+    <!-- Temporary library probe: proves GogLibrary works against a real account. -->
+    <string name="gog_check_library">Check library</string>
+    <string name="gog_sign_out">Sign out</string>
+    <string name="gog_checking">Reading the library…</string>
+    <string name="gog_probe_owned">%1$d products owned</string>
+    <string name="gog_probe_failed">Library check failed: %1$s</string>
+    <string name="gog_download">Download</string>
+    <string name="gog_needs_all_files">Downloads go to the public Download/RimDroid folder, which needs All-files access. Grant it, then try again.</string>
+    <string name="gog_saved_to">Saved to Download/RimDroid/%1$s\n\nYou can create an instance from it now — the file stays there, so you can reinstall later without downloading again.</string>
+    <string name="gog_create_instance">Create an instance</string>
+    <string name="gog_scanning">Checking your library — %1$d of %2$d</string>
+    <string name="gog_no_rimworld">No RimWorld in this account — showing every game that has a Linux installer.</string>
+    <string name="gog_nothing_linux">Nothing in this account has a Linux installer.</string>
+    <string name="gog_item_installer">%1$s · %2$s</string>
+    <string name="gog_keepalive">Downloading from GOG — you can switch to other apps</string>
+    <string name="gog_download_interrupted">The download was interrupted. Tap “%1$s” again to continue.</string>
+    <string name="gog_download_failed">Download failed: %1$s</string>
+    <string name="gog_queued">Queued</string>
+    <string name="gog_downloading">Downloading…</string>
+    <string name="gog_percent">%1$d%%</string>
+    <string name="gog_install_dlc">Install</string>
+    <string name="gog_item_dlc">DLC · %1$s</string>
+    <string name="new_instance_with_dlc">%1$s\n+ DLC: %2$d</string>
+    <string name="download_manifest_hint">Advanced: Manifest ID — blank = the latest build of the chosen version</string>
+    <string name="download_start">Download</string>
+    <string name="download_tab_game">Game</string>
+    <string name="download_tab_dlc">DLC</string>
+    <string name="download_tab_mods">Mods</string>
+    <string name="download_dlc_note">Pick the DLC your account owns. Each downloads as a portable .zip into /Download/RimDroid — import it into any instance from the menu. (Unowned DLC are skipped.)</string>
+    <string name="download_dlc_start">Download selected DLC</string>
+    <string name="download_install_content">Install a mod / DLC into an instance</string>
+    <string name="download_mods_note">Download Workshop mods by ID or link (…/sharedfiles/filedetails/?id=NUMBER). No Steam login needed. Several IDs can be space-separated. A collection link downloads all of its mods, in the collection\'s order. Each mod is saved as a .zip in /Download/RimDroid.</string>
+    <string name="download_mods_hint">Workshop IDs or links — mods or a collection</string>
+    <string name="download_mods_hint_single">Workshop ID</string>
+    <string name="download_mods_start">Download mods</string>
+    <string name="download_mods_login_head">Direct download (no login)</string>
+    <string name="download_mods_browser_head">Download via browser (ggntw.com)</string>
+    <string name="download_mods_browser_note">Opens a third-party downloader — download the .zip there, then Install it into an instance. (Third-party service; use at your own discretion.)</string>
+    <string name="download_mods_browser_start">Get download link (browser)</string>
+    <string name="download_cancel">Cancel download</string>
+    <string name="download_cancel_confirm">Cancel the download in progress?</string>
+    <string name="gl4es_label">GL4ES (compatible, older GPUs)</string>
+    <string name="zink_zfa_label">Zink ZFA (Vulkan, recommended)</string>
+    <string name="zink_osmesa_label">Zink OSMesa (Vulkan, fallback)</string>
+    <string name="mobileglues_label">MobileGlues (GL over GLES — experimental, no Vulkan)</string>
+    <string name="debug_mode">Debug mode (verbose log)</string>
+    <string name="env_vars_title">Advanced: extra launch variables</string>
+    <string name="env_vars_hint">KEY=VALUE pairs (space-separated), applied on launch and overriding the defaults. For diagnostics tests — leave empty unless you know what you\'re doing. </string>
+    <string name="env_vars_hint_example">e.g. BOX64_DYNAREC_ALIGNED_ATOMICS=1</string>
+
+    <!-- Settings cards -->
+    <string name="card_video">Video</string>
+    <string name="card_fps">Frame rate</string>
+    <string name="card_controls">Controls</string>
+    <string name="card_sound">Sound</string>
+    <string name="card_advanced">Advanced</string>
+    <string name="sound_generate">Install game sound</string>
+    <string name="sound_generate_note">Game sound is installed as a separate mod because of decoder issues. The toggle below turns that mod on or off. With sound on, the game takes a bit longer to load.</string>
+    <string name="sound_installing_title">Installing sound</string>
+    <string name="sound_generate_toast">This may take up to 2 minutes. You can keep using the app.</string>
+    <string name="sound_done">Sound pack ready! Turn on \"Game sound\" in Settings to use it.</string>
+    <string name="sound_failed">Sound pack generation failed. See Download/_fmod_spike_result.txt.</string>
+    <string name="env_section_header">Environment variables</string>
+    <string name="steam_spike_label">Steam login spike (QR)</string>
+    <string name="steam_dl_label">Steam download spike (RimWorld)</string>
+    <string name="pick_zip">Pick ZIP file</string>
+    <string name="install">Install</string>
+    <string name="installing">Installing…</string>
+    <string name="instance_name_hint">Instance name</string>
+    <string name="selected_zip_hint">No file selected</string>
+    <string name="error_name_required">Name is required</string>
+    <string name="error_name_too_long">Name is too long (max %1$d characters)</string>
+    <string name="error_name_exists">An instance with this name already exists</string>
+    <string name="nav_manage_storage">Manage Storage</string>
+    <string name="clear">Clear</string>
+
+    <!-- Gamepad button remapper -->
+    <string name="gamepad_mapper_settings_btn">Gamepad mapping</string>
+    <string name="gamepad_mapper_title">Gamepad mapping</string>
+    <string name="gamepad_mapper_instructions">Fix a controller with swapped buttons. Tap Start, then press the physical button you want for each action.</string>
+    <string name="gamepad_mapper_start">Start</string>
+    <string name="gamepad_mapper_reset">Reset to default</string>
+    <string name="gamepad_mapper_reset_done">Mapping reset to default</string>
+    <string name="gamepad_mapper_step">Press the button for:\n%1$s</string>
+    <string name="gamepad_mapper_done">Mapping saved</string>
+    <string name="gamepad_mapper_dup">Already assigned — press another button</string>
+    <string-array name="gamepad_mapper_labels">
+        <item>A — Enter (accept)</item>
+        <item>B — Escape (back)</item>
+        <item>X — Tab (architect menu)</item>
+        <item>Y — Space (pause)</item>
+        <item>LB — Zoom out</item>
+        <item>RB — Zoom in</item>
+        <item>Select — Escape (back)</item>
+        <item>Start — Escape (back)</item>
+        <item>L3 — Q (rotate)</item>
+        <item>R3 — Shift (multi-select)</item>
+    </string-array>
+
+    <!-- Engine card (instance settings) -->
+    <string name="engine_label">Engine</string>
+    <string name="engine_box64">Full emulation (box64)</string>
+    <string name="engine_box64_hint">Everything runs through x86 emulation. Most compatible, slowest.</string>
+    <string name="engine_box64_mono">box64 + native Mono</string>
+    <string name="engine_box64_mono_hint">The engine is emulated, the game\'s own code runs natively. Faster.</string>
+    <string name="engine_native_hint">The game\'s own engine built for Android, nothing emulated. Fastest. RimWorld 1.6 only; Vulkan only. Early test: back up your saves first.</string>
+    <string name="engine_native_renderer_note">The native engine always renders with Vulkan directly.</string>
+    <string name="engine_notice_title">New engine available</string>
+    <string name="engine_notice_msg">This version can run RimWorld on the native engine: faster, nothing emulated. This instance stays on the engine it ran with until you switch it in Settings → Engine. Early test: back up your saves first.</string>
+    <string name="engine_notice_switch">Switch now</string>
+    <string name="engine_notice_keep">Not now</string>
+    <string name="vk_compat_label">Vulkan compatibility</string>
+    <string name="vk_compat_auto_on">Auto (on for this GPU)</string>
+    <string name="vk_compat_auto_off">Auto (off for this GPU)</string>
+    <string name="vk_compat_on">On</string>
+    <string name="vk_compat_off">Off</string>
+    <string name="vk_compat_hint">Turn it on if the picture freezes on the logo or in the menu while the game keeps running. The picture is the same; Unity builds each frame differently. Takes effect at the next launch.</string>
+    <string name="nav_mods">Mods</string>
+    <string name="mods_active">Active (%1$d) — in load order</string>
+    <string name="mods_inactive">Inactive (%1$d)</string>
+    <string name="mods_search">Search mods</string>
+    <string name="mods_empty">No mods in this instance yet.</string>
+    <string name="mods_game_running">The game is running: close it to change mods. The game saves its own mod list when it exits.</string>
+    <string name="mods_no_config">Start the game once to switch mods on and off here.</string>
+    <string name="mods_not_installed">Not installed — in the list, but its folder is missing</string>
+    <string name="mods_wrong_version">Not for %1$s</string>
+    <string name="mods_switch_failed">Could not change the mod list</string>
+    <string name="mods_author">Author: %1$s</string>
+    <string name="mods_versions">Game versions: %1$s</string>
+    <string name="mods_folder">Folder: %1$s</string>
+    <string name="mod_delete_title">Delete %1$s?</string>
+    <string name="mod_delete_message">The mod\'s folder is removed from this instance. Saves that use it may not load.</string>
+    <string name="mod_delete_confirm">Delete</string>
+    <string name="mods_sort">Sort</string>
+    <string name="mods_install_zip">Install ZIP</string>
+    <string name="mods_sort_hint">Sort orders the active mods by the rules their authors give. Drag a mod by ≡ to move it; long-press for top / bottom.</string>
+    <string name="mods_sort_title">Load order</string>
+    <string name="mods_sort_moved">%1$d mod(s) will move.</string>
+    <string name="mods_sort_nochange">The order already follows the mods\' rules.</string>
+    <string name="mods_sort_apply">Apply</string>
+    <string name="mods_sort_missing">Needed, but not installed:</string>
+    <string name="mods_sort_inactive">Needed, but switched off:</string>
+    <string name="mods_sort_incompatible">Incompatible, both on:</string>
+    <string name="mods_sort_conflicts">These mods\' rules contradict each other; they keep their places as far as possible:</string>
+    <string name="mods_move_top">Move to the top</string>
+    <string name="mods_move_up">Move up</string>
+    <string name="mods_move_down">Move down</string>
+    <string name="mods_move_bottom">Move to the bottom</string>
+    <string name="mods_drag">Drag to change the load order</string>
+    <string name="nav_saves_transfer">Import / export saves</string>
+    <string name="nav_settings_transfer">Import / export settings</string>
+    <string name="saves_transfer_import_title">Import saves</string>
+    <string name="saves_transfer_import_hint">A saves zip exported from RimDroid. Saves with the same names in this instance are replaced.</string>
+    <string name="saves_transfer_import_confirm">Import %1$s into the saves of %2$s? Saves with the same names are replaced.</string>
+    <string name="saves_transfer_export_title">Export saves</string>
+    <string name="saves_transfer_export_hint">Saves this instance\'s saves as a zip, to back them up or to move them to another instance or phone.</string>
+    <string name="settings_transfer_import_title">Import settings</string>
+    <string name="settings_transfer_import_hint">A settings zip exported from RimDroid. It replaces this instance\'s game settings: options, key bindings, the mod list and mod settings.</string>
+    <string name="settings_transfer_import_confirm">Import %1$s into the game settings of %2$s? Its current settings, mod list included, are replaced.</string>
+    <string name="settings_transfer_export_title">Export settings</string>
+    <string name="settings_transfer_export_hint">Saves this instance\'s game settings (options, key bindings, the mod list and mod settings) as a zip.</string>
+    <string name="transfer_exported">Exported %1$s (%2$d KB)</string>
+    <string name="transfer_export_failed">Export failed: %1$s</string>
+    <string name="transfer_imported">Restored %1$s → %2$s</string>
+    <string name="transfer_import_failed">Import failed: %1$s</string>
+    <string name="touch_select_label">Hold a finger, then drag to box-select (hold + release = right click)</string>
+</resources>
